@@ -2,6 +2,7 @@
 
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { motion } from "framer-motion";
+import Image from "next/image";
 import * as Icons from "lucide-react";
 
 
@@ -55,16 +56,16 @@ export default function FAQSection() {
     return (
         <section id="faq" className="relative py-24 overflow-hidden">
             {/* Background Image */}
-            <div
-                className="absolute inset-0 z-0"
-                style={{
-                    backgroundImage: 'url(/FAQ-bg.webp)',
-                    backgroundSize: 'cover',
-                    backgroundPosition: 'center top',
-                    backgroundAttachment: 'fixed'
-                }}
-            >
-                <div className="absolute inset-0 bg-zinc-950/85" />
+            {/* Background Image */}
+            <div className="absolute inset-0 z-0">
+                <Image
+                    src="/FAQ-bg.webp"
+                    alt="FAQ Background"
+                    fill
+                    className="object-cover object-top"
+                    quality={100}
+                />
+                <div className="absolute inset-0 bg-zinc-950/85 bg-blend-overlay" />
             </div>
 
             <div className="mx-auto max-w-5xl px-4 md:px-6 relative z-10">

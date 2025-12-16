@@ -83,18 +83,18 @@ export default function GamesSection() {
   return (
     <section id="games" className="relative min-h-screen flex items-center py-6 px-6 overflow-hidden">
       {/* Fixed Background Image with Parallax Effect */}
-      <div
-        className="absolute inset-0 w-full h-full z-0"
-        style={{
-          backgroundImage: 'url(/BG.webp)',
-          backgroundSize: 'cover',
-          backgroundPosition: 'center top',
-          backgroundAttachment: 'fixed',
-          backgroundRepeat: 'no-repeat',
-        }}
-      >
+      {/* Fixed Background Image */}
+      <div className="absolute inset-0 w-full h-full z-0">
+        <Image
+          src="/BG.webp"
+          alt="Games Background"
+          fill
+          className="object-cover object-top"
+          priority
+          quality={100}
+        />
         {/* Dark overlay for better text readability */}
-        <div className="absolute inset-0 bg-black/60" />
+        <div className="absolute inset-0 bg-black/60 relative z-10" />
       </div>
 
       <div className="max-w-7xl mx-auto w-full relative z-20">

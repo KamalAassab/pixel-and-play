@@ -204,7 +204,9 @@ export default function AboutSection() {
                                 muted={isMuted}
                                 playsInline
                                 poster="/BG5.webp"
-                                preload="metadata"
+                                preload="auto"
+                                // @ts-expect-error - fetchPriority is standard but missing in React types
+                                fetchPriority="high"
                                 className="w-full h-full object-cover"
                             />
                             {/* Overlay just for tint */}
