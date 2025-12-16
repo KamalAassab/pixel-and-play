@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import { Inter, Outfit, Poppins, Anton } from "next/font/google";
 import dynamic from "next/dynamic";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 import "./globals.css";
 import { Providers } from "./providers";
 
@@ -197,7 +198,7 @@ export default function RootLayout({
           <Header />
           {children}
           <Footer />
-
+          <SpeedInsights />
         </Providers>
       </body>
     </html>
