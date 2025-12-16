@@ -1,0 +1,136 @@
+import * as React from "react";
+
+import { cva, type VariantProps } from "class-variance-authority";
+
+import { motion } from "framer-motion";
+
+import { ArrowRight } from "lucide-react";
+
+import { cn } from "@/lib/utils"; // Your shadcn/ui utils file
+
+// CVA for card variants
+const cardVariants = cva(
+  "relative flex flex-col justify-between w-full p-6 overflow-hidden rounded-xl shadow-sm transition-shadow duration-300 ease-in-out group hover:shadow-lg",
+  {
+    variants: {
+      variant: {
+        default: "bg-zinc-900/90 text-white border border-white/10",
+        red: "bg-[#FF5757]/90 text-white",
+        blue: "bg-[#1B4FD8]/90 text-white",
+        gray: "bg-zinc-800/90 text-white border border-white/10",
+      },
+    },
+    defaultVariants: {
+      variant: "default",
+    },
+  }
+);
+
+export interface ServiceCardProps
+  extends React.ComponentProps<typeof motion.div>,
+  VariantProps<typeof cardVariants> {
+  /**
+   * The main title of the card.
+   */
+  title: string;
+  /**
+   * The URL the card's link should point to.
+   */
+  href?: string;
+  /**
+   * The source URL for the decorative image.
+   */
+  imgSrc?: string;
+  /**
+   * The alt text for the decorative image, for accessibility.
+   */
+  imgAlt?: string;
+  /**
+   * Optional click handler
+   */
+  onClick?: () => void;
+  /**
+   * Additional content to display (e.g., description, price, count)
+   */
+  children?: React.ReactNode;
+}
+
+const ServiceCard = React.forwardRef<HTMLDivElement, ServiceCardProps>(
+  ({ className, variant, title, href, imgSrc, imgAlt, onClick, children, ...props }, ref) => {
+
+    // Animation variants for Framer Motion
+    const cardAnimation = {
+      hover: {
+        scale: 1.02,
+        transition: { duration: 0.3 },
+      },
+    };
+
+    const imageAnimation = {
+      hover: {
+        scale: 1.1,
+        rotate: 3,
+        x: 10,
+        transition: { duration: 0.4, ease: "easeInOut" as const },
+      },
+    };
+
+    const arrowAnimation = {
+      hover: {
+        x: 5,
+        transition: { duration: 0.3, ease: "easeInOut" as const, repeat: Infinity, repeatType: "reverse" as const },
+      }
+    }
+
+    const CardContent = (
+      <motion.div
+        className={cn(cardVariants({ variant, className }))}
+        ref={ref}
+        variants={cardAnimation}
+        whileHover="hover"
+        onClick={onClick}
+        style={{ cursor: onClick || href ? 'pointer' : 'default' }}
+        {...props}
+      >
+        <div className="relative z-10 flex flex-col h-full gap-4">
+          <h3 className="text-2xl font-bold tracking-tight text-white">{title}</h3>
+          {children}
+          {(href || onClick) && (
+            <a
+              href={href}
+              onClick={(e) => {
+                if (onClick && !href) {
+                  e.preventDefault();
+                  onClick();
+                }
+              }}
+              aria-label={`Learn more about ${title}`}
+              className="mt-auto flex items-center text-sm font-semibold text-white/90 group-hover:text-white group-hover:underline"
+            >
+              EXPLORE
+              <motion.div variants={arrowAnimation}>
+                <ArrowRight className="ml-2 h-4 w-4" />
+              </motion.div>
+            </a>
+          )}
+        </div>
+
+        {imgSrc && (
+          <motion.img
+            src={imgSrc}
+            alt={imgAlt || title}
+            className="absolute right-0 bottom-0 w-32 h-32 md:w-40 md:h-40 object-contain opacity-90 group-hover:opacity-100 translate-x-8 translate-y-4"
+            variants={imageAnimation}
+          />
+        )}
+      </motion.div>
+    );
+
+    return CardContent;
+  }
+);
+
+ServiceCard.displayName = "ServiceCard";
+
+export { ServiceCard };
+

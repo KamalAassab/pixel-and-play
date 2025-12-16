@@ -1,0 +1,19 @@
+{
+  "name": "PIXEL & PLAY Gaming Café",
+  "short_name": "PIXEL & PLAY",
+  "description": "The ultimate rage-free gaming zone. Board games, PS5, Switch, and delicious treats.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#09090B",
+  "theme_color": "#3B82F6",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "/logo.webp",
+      "sizes": "512x512",
+      "type": "image/webp",
+      "purpose": "any maskable"
+    }
+  ]
+}
+
