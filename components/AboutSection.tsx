@@ -241,13 +241,10 @@ export default function AboutSection() {
                                 ref={videoRef}
                                 src="/video-optimized.webm"
                                 muted={isMuted}
-                                // removed autoPlay
                                 loop
                                 playsInline
                                 poster="/BG5.webp"
-                                preload="auto"
-                                // @ts-expect-error - fetchPriority is standard but missing in React types
-                                fetchPriority="high"
+                                preload="metadata"
                                 className="w-full h-full object-cover"
                             />
                             {/* Overlay just for tint */}
