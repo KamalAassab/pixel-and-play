@@ -245,7 +245,7 @@ export default function AboutSection() {
                                 loop
                                 playsInline
                                 poster="/BG5.webp"
-                                preload="metadata"
+                                preload="none"
                                 className="w-full h-full object-cover"
                             />
                             {/* Overlay just for tint */}
