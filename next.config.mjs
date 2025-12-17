@@ -27,16 +27,6 @@ const nextConfig = {
         pathname: '/**',
       },
     ],
-    localPatterns: [
-      {
-        pathname: '/**',
-        search: '',
-      },
-      {
-        pathname: '/**',
-        search: '?v=2',
-      },
-    ],
   },
   experimental: {
     optimizeCss: true,

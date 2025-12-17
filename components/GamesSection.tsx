@@ -110,7 +110,7 @@ export default function GamesSection() {
       {/* Fixed Background Image */}
       <div className="fixed inset-0 w-full h-full -z-10">
         <Image
-          src="/BG.webp"
+          src="/BG.jpg"
           alt="Games Background"
           fill
           className="object-cover object-top"
