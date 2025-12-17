@@ -23,7 +23,12 @@ export default function AboutSection() {
     const videoRef = useRef<HTMLVideoElement>(null);
     const containerRef = useRef<HTMLDivElement>(null);
     const [isVisible, setIsVisible] = useState(false);
-    const [isMuted, setIsMuted] = useState(false);
+    const [isMuted, setIsMuted] = useState(false); // Default sound ON
+    const [isPlaying, setIsPlaying] = useState(false);
+    const [hasStarted, setHasStarted] = useState(false);
+
+    // Track if we should resume playback when scrolling back into view
+    const shouldResume = useRef(false);
 
     const features = [
         "Social Gaming Lounge",
@@ -47,10 +52,26 @@ export default function AboutSection() {
         const observer = new IntersectionObserver(
             ([entry]) => {
                 setIsVisible(entry.isIntersecting);
+
+                if (!videoRef.current) return;
+
                 if (entry.isIntersecting) {
-                    videoRef.current?.play().catch(() => { });
+                    // Only auto-resume if users have started it and it was playing before scroll
+                    if (hasStarted && shouldResume.current) {
+                        videoRef.current.play()
+                            .then(() => setIsPlaying(true))
+                            .catch(() => setIsPlaying(false));
+                    }
                 } else {
-                    videoRef.current?.pause();
+                    // When scrolling away, check if it's currently playing
+                    if (!videoRef.current.paused) {
+                        shouldResume.current = true; // Mark to resume later
+                        videoRef.current.pause();
+                        setIsPlaying(false);
+                    } else {
+                        // If it was already paused (manually), don't auto-resume
+                        shouldResume.current = false;
+                    }
                 }
             },
             { threshold: 0.1 }
@@ -61,13 +82,31 @@ export default function AboutSection() {
         }
 
         return () => observer.disconnect();
-    }, []);
+    }, [hasStarted]); // Re-run effect if start state changes, though logic mainly relies on refs
 
     const toggleMute = () => {
         if (videoRef.current) {
             const newMutedState = !isMuted;
             videoRef.current.muted = newMutedState;
             setIsMuted(newMutedState);
+        }
+    };
+
+    const togglePlay = () => {
+        if (!videoRef.current) return;
+
+        if (isPlaying) {
+            videoRef.current.pause();
+            setIsPlaying(false);
+            shouldResume.current = false; // User manually paused, so don't auto-resume
+        } else {
+            videoRef.current.play()
+                .then(() => {
+                    setIsPlaying(true);
+                    setHasStarted(true);
+                    shouldResume.current = true; // User started it, so resume if scrolled
+                })
+                .catch(console.error);
         }
     };
 
@@ -200,8 +239,10 @@ export default function AboutSection() {
                         <div className="h-[60vh] md:h-[80vh] aspect-[9/16] rounded-[2rem] overflow-hidden border border-white/10 relative bg-zinc-900 shadow-2xl shadow-brand-blue/10 group mx-auto">
                             <video
                                 ref={videoRef}
-                                src="/video-1080p.mp4"
+                                src="/video-optimized.webm"
                                 muted={isMuted}
+                                // removed autoPlay
+                                loop
                                 playsInline
                                 poster="/BG5.webp"
                                 preload="auto"
@@ -211,6 +252,24 @@ export default function AboutSection() {
                             />
                             {/* Overlay just for tint */}
                             <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-black/10 pointer-events-none" />
+
+                            {/* Play/Pause Button - Bottom Left */}
+                            <button
+                                onClick={togglePlay}
+                                className="absolute bottom-6 left-6 z-20 w-12 h-12 flex items-center justify-center rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-white transition-all duration-300 hover:scale-110 hover:bg-brand-red hover:border-brand-red shadow-lg group/play"
+                                aria-label={isPlaying ? "Pause video" : "Play video"}
+                            >
+                                <div className="relative">
+                                    {/* Play Icon - Shows when PAUSED */}
+                                    <div className={cn("transition-all duration-300 absolute inset-0 rotate-0 scale-100", !isPlaying ? "opacity-100 rotate-0 scale-100" : "opacity-0 rotate-90 scale-0")}>
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-play pl-1"><polygon points="6 3 20 12 6 21 6 3" /></svg>
+                                    </div>
+                                    {/* Pause Icon - Shows when PLAYING */}
+                                    <div className={cn("transition-all duration-300", !isPlaying ? "opacity-0 -rotate-90 scale-0" : "opacity-100 rotate-0 scale-100")}>
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-pause"><rect width="4" height="16" x="6" y="4" /><rect width="4" height="16" x="14" y="4" /></svg>
+                                    </div>
+                                </div>
+                            </button>
 
                             {/* Mute Toggle Button */}
                             <button

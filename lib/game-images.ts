@@ -6,66 +6,66 @@
 
 export const gameImages: Record<string, string> = {
   // Video Games - Action/Adventure
-  "god-of-war": "/games/god_of_war.webp",
-  "ratchet-clank": "/games/ratchetanclank.jfif",
-  "gta-v": "/games/gtav.jfif",
-  "mario": "/games/mario.jfif",
+  "god-of-war": "/games/god-of-war.webp",
+  "ratchet-clank": "/games/ratchet-clank.webp",
+  "gta-v": "/games/gta-v.webp",
+  "mario": "/games/mario.webp",
 
   // Video Games - Sports
-  "fc24": "/games/fc24.jfif",
-  "fc25": "/games/fc25.jfif",
-  "nba-2k24": "/games/nba24.jfif",
-  "ufc5": "/games/ufc5.jfif",
+  "fc24": "/games/fc24.webp",
+  "fc25": "/games/fc25.webp",
+  "nba-2k24": "/games/nba-2k24.webp",
+  "ufc5": "/games/ufc5.webp",
 
   // Video Games - Fighting
-  "tekken-7": "/games/tekken7.jfif",
+  "tekken-7": "/games/tekken-7.webp",
 
   // Video Games - Shooter
-  "call-of-duty": "/games/COD.jfif",
-  "fortnite": "/games/fortnite.jfif",
+  "call-of-duty": "/games/call-of-duty.webp",
+  "fortnite": "/games/fortnite.webp",
 
   // Video Games - Racing
-  "rocket-league": "/games/rocketleague.jfif",
-  "grid-legends": "/games/gridlegends.jfif",
+  "rocket-league": "/games/rocket-league.webp",
+  "grid-legends": "/games/grid-legends.webp",
 
   // Board Games - Classic
-  "monopoly": "/games/monopolyy.jfif",
+  "monopoly": "/games/monopoly.webp",
   "checkers": "/games/checkers.webp",
   "cluedo": "/games/cluedo.webp",
-  "puissance-4": "/games/connect4.webp",
+  "puissance-4": "/games/puissance-4.webp",
   "parchisi": "/games/parchisi.webp",
   "chess": "/games/chess.webp",
 
   // Board Games - Modern
-  "la-bonne-paie": "/games/la_bonne_paye.webp",
-  "loups-garous": "/games/loups-garous.jfif",
-  "code-names": "/games/codenames.jpg",
-  "district-noir": "/games/districtnoir.jfif",
-  "top-ten": "/games/topten.webp",
-  "ole-guaca-mole": "/games/ole_guaca.jfif",
-  "las-vegas": "/games/las_vegas.webp",
-  "trio": "/games/Trío.jfif",
-  "xoxo": "/games/xo.webp",
-  "little-secret": "/games/Little Secret.jfif",
-  "nommez-en-5": "/games/nommezen5.jpg",
-  "escape-game": "/games/excapegame.jpg",
-  "sans-pitie": "/games/sanspitie.webp",
-  "54-pes-blocs": "/games/54pes_blocs.webp",
-  "jokes-de-papa": "/games/jokesdepapa.jpg",
-  "falling-monkeys": "/games/fallingmonkeys.jpg",
-  "shit-happens": "/games/shithappens.webp",
-  "thats-not-a-hat": "/games/thatsnotahat.webp",
-  "plus-ou-moins": "/games/plusoumoins.jpg",
+  "la-bonne-paie": "/games/la-bonne-paie.webp",
+  "loups-garous": "/games/loups-garous.webp",
+  "code-names": "/games/code-names.webp",
+  "district-noir": "/games/district-noir.webp",
+  "top-ten": "/games/top-ten.webp",
+  "ole-guaca-mole": "/games/ole-guaca-mole.webp",
+  "las-vegas": "/games/las-vegas.webp",
+  "trio": "/games/trio.webp",
+  "xoxo": "/games/xoxo.webp",
+  "little-secret": "/games/little-secret.webp",
+  "nommez-en-5": "/games/nommez-en-5.webp",
+  "escape-game": "/games/escape-game.webp",
+  "sans-pitie": "/games/sans-pitie.webp",
+  "54-pes-blocs": "/games/54-pes-blocs.webp",
+  "jokes-de-papa": "/games/jokes-de-papa.webp",
+  "falling-monkeys": "/games/falling-monkeys.webp",
+  "shit-happens": "/games/shit-happens.webp",
+  "thats-not-a-hat": "/games/thats-not-a-hat.webp",
+  "plus-ou-moins": "/games/plus-ou-moins.webp",
 
   // Card Games
-  "reummy": "/games/rummy.jpg",
-  "uno": "/games/uno.jpg",
-  "poker": "/games/poker.jfif",
+  "reummy": "/games/reummy.webp",
+  "uno": "/games/uno.webp",
+  "poker": "/games/poker.webp",
 
   // Consoles
-  "nintendo-switch": "/games/nintendo-switch.webp",
-  "ps5": "/games/ps5.webp",
-  "xbox": "/games/xbox.webp",
+  "nintendo-switch": "/games/default-game.webp",
+  "ps5": "/games/default-game.webp",
+  "xbox": "/games/default-game.webp",
 };
 
 /**

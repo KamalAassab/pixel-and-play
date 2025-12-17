@@ -8,6 +8,8 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 
 
+import SmoothScrolling from "@/components/SmoothScrolling";
+
 const inter = Inter({
   subsets: ["latin"],
   variable: "--font-inter",
@@ -185,7 +187,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="scroll-smooth">
+    <html lang="en">
       <head>
         <link rel="manifest" href="/manifest.json" />
         <link rel="icon" href="/svg/favicon.svg" type="image/svg+xml" />
@@ -194,10 +196,11 @@ export default function RootLayout({
         className={`${inter.variable} ${outfit.variable} ${poppins.variable} ${anton.variable} font-sans selection:bg-brand-blue selection:text-white relative overflow-x-hidden`}
       >
         <Providers>
-          <Header />
-          {children}
-          <Footer />
-
+          <SmoothScrolling>
+            <Header />
+            {children}
+            <Footer />
+          </SmoothScrolling>
         </Providers>
       </body>
     </html>

@@ -1,4 +1,3 @@
-"use client";
 
 import { motion } from "framer-motion";
 import { ArrowRight, MapPin } from "lucide-react";
@@ -8,6 +7,7 @@ import * as Icons from "lucide-react";
 
 
 export default function ContactSection() {
+
 
   return (
     <section id="location" className="relative min-h-screen flex items-center justify-center py-12 px-6 bg-zinc-950 overflow-hidden">
@@ -109,7 +109,7 @@ export default function ContactSection() {
             transition={{ duration: 0.6, delay: 0.2 }}
             className="relative w-full h-[400px] lg:h-full min-h-[400px] lg:min-h-0 rounded-3xl overflow-hidden border border-white/10 shadow-2xl bg-[#242424] lg:col-start-2 lg:row-start-1"
           >
-            {/* Map Embed - Scaled to hide Google UI controls */}
+            {/* Map Facade / Embed */}
             <iframe
               src="https://www.google.com/maps?q=159+Rue+Ibnou+Faris,+Casablanca&z=16&output=embed"
               className="absolute inset-0 w-full h-full border-0 map-filter grayscale invert opacity-80 pointer-events-none scale-[1.2] md:scale-[1.5] translate-y-[-10%]"

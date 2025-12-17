@@ -54,10 +54,10 @@ export default function FAQSection() {
     ];
 
     return (
-        <section id="faq" className="relative py-24 overflow-hidden">
+        <section id="faq" className="relative py-24 overflow-hidden [clip-path:inset(0)]">
             {/* Background Image */}
             {/* Background Image */}
-            <div className="absolute inset-0 z-0">
+            <div className="fixed inset-0 -z-10">
                 <Image
                     src="/FAQ-bg.webp"
                     alt="FAQ Background"
