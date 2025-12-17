@@ -241,6 +241,7 @@ export default function AboutSection() {
                                 ref={videoRef}
                                 src="/video-optimized.webm"
                                 muted={isMuted}
+                                // removed autoPlay
                                 loop
                                 playsInline
                                 poster="/BG5.webp"

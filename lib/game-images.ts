@@ -9,20 +9,20 @@ export const gameImages: Record<string, string> = {
   "god-of-war": "/games/god-of-war.webp",
   "ratchet-clank": "/games/ratchet-clank.webp",
   "gta-v": "/games/gta-v.webp",
-  "mario": "/games/mario.webp",
+  "mario": "/games/mario.webp?v=2",
 
   // Video Games - Sports
   "fc24": "/games/fc24.webp",
   "fc25": "/games/fc25.webp",
   "nba-2k24": "/games/nba-2k24.webp",
-  "ufc5": "/games/ufc5.webp",
+  "ufc5": "/games/ufc5.webp?v=2",
 
   // Video Games - Fighting
   "tekken-7": "/games/tekken-7.webp",
 
   // Video Games - Shooter
   "call-of-duty": "/games/call-of-duty.webp",
-  "fortnite": "/games/fortnite.webp",
+  "fortnite": "/games/fortnite.webp?v=2",
 
   // Video Games - Racing
   "rocket-league": "/games/rocket-league.webp",
@@ -44,7 +44,7 @@ export const gameImages: Record<string, string> = {
   "top-ten": "/games/top-ten.webp",
   "ole-guaca-mole": "/games/ole-guaca-mole.webp",
   "las-vegas": "/games/las-vegas.webp",
-  "trio": "/games/trio.webp",
+  "trio": "/games/trio.webp?v=2",
   "xoxo": "/games/xoxo.webp",
   "little-secret": "/games/little-secret.webp",
   "nommez-en-5": "/games/nommez-en-5.webp",
@@ -60,7 +60,7 @@ export const gameImages: Record<string, string> = {
   // Card Games
   "reummy": "/games/reummy.webp",
   "uno": "/games/uno.webp",
-  "poker": "/games/poker.webp",
+  "poker": "/games/poker.webp?v=2",
 
   // Consoles
   "nintendo-switch": "/games/default-game.webp",
