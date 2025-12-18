@@ -130,7 +130,7 @@ const FUITestimonialWithSlide = ({ testimonials = defaultTestimonials, title, su
                 {(title || subtitle) && (
                     <div className='mb-6 flex flex-col items-center text-center'>
                         {title && (
-                            <p className="mt-4 max-w-2xl mx-auto text-4xl md:text-5xl font-bold tracking-tight text-transparent bg-clip-text bg-gradient-to-r from-brand-blue to-brand-red">
+                            <p className="mt-4 max-w-2xl mx-auto text-4xl md:text-5xl font-bold tracking-tight text-transparent bg-clip-text bg-gradient-to-r from-brand-blue to-brand-red [text-stroke:0.5px_white] [-webkit-text-stroke:0.5px_white]">
                                 {title}
                             </p>
                         )}

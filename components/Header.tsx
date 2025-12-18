@@ -44,13 +44,25 @@ export default function Header() {
   ];
 
   return (
-    <header className="fixed top-4 left-1/2 -translate-x-1/2 w-[95%] max-w-5xl z-50 transition-all duration-500 ease-in-out">
-      <div
-        className={cn(
-          "relative flex items-center justify-between px-4 py-0 rounded-2xl border border-white/10 shadow-2xl backdrop-blur-xl transition-all duration-300",
-          scrolled ? "bg-zinc-950/90 py-0" : "bg-zinc-950/70 py-0.5"
-        )}
-      >
+    <header className={cn(
+      "fixed left-0 right-0 z-50 transition-all duration-500 ease-in-out",
+      scrolled ? "top-0 backdrop-blur-xl" : "top-4"
+    )}>
+      {/* Full width blur background when scrolled */}
+      {scrolled && (
+        <div className="absolute inset-0 bg-zinc-950/80 backdrop-blur-xl" />
+      )}
+      
+      <div className={cn(
+        "relative mx-auto flex items-center justify-between px-4 py-0 transition-all duration-300",
+        scrolled ? "w-full max-w-full py-0" : "w-[95%] max-w-5xl py-0.5"
+      )}>
+        <div
+          className={cn(
+            "relative flex items-center justify-between w-full px-4 py-0 rounded-2xl border border-white/10 shadow-2xl transition-all duration-300",
+            scrolled ? "bg-transparent py-0 border-none shadow-none" : "bg-zinc-950/70 py-0.5"
+          )}
+        >
         {/* Logo */}
         <Link
           href="/"
@@ -113,8 +125,10 @@ export default function Header() {
               accentColor="#3B82F6"
               changeMenuColorOnOpen={true}
               closeOnClickAway={true}
+              activeSection={activeSection}
             />
           </div>
+        </div>
         </div>
       </div>
     </header>

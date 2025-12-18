@@ -2,8 +2,12 @@
 
 import Image from "next/image";
 import { CalendarDays, Coffee } from "lucide-react";
+import { motion, useInView } from "framer-motion";
+import { useRef } from "react";
 
 export default function HeroSection() {
+  const rageFreeZoneRef = useRef(null);
+  const isInView = useInView(rageFreeZoneRef, { once: true, margin: "-100px" });
 
   return (
     <section className="relative min-h-screen flex items-end justify-center overflow-hidden bg-background">
@@ -26,18 +30,24 @@ export default function HeroSection() {
         <div className="absolute inset-0 bg-black/20" /> {/* General darkening */}
       </div>
 
-      <div className="container relative z-10 w-full flex flex-col justify-end px-4 sm:px-6 md:px-8 lg:px-12 pb-0 pointer-events-none"> {/* Added pointer-events-none to container, will re-enable on interactive children */}
+      <div className="container relative z-10 w-full flex flex-col justify-end px-3 sm:px-6 md:px-8 lg:px-12 pb-0 pointer-events-none"> {/* Added pointer-events-none to container, will re-enable on interactive children */}
 
         <div className="max-w-7xl pointer-events-auto pb-4 sm:pb-6 md:pb-8 w-full">
           <div className="flex flex-col lg:flex-row items-start lg:items-end gap-4 sm:gap-5 md:gap-6 lg:gap-8 mb-4 sm:mb-6 md:mb-8">
             {/* Main Heading */}
             <h1
-              className="font-bold tracking-tighter text-white animate-fade-in [animation-delay:100ms] leading-[0.9] flex-1 min-w-0 w-full text-center md:text-left"
+              className="font-bold tracking-tighter text-white animate-fade-in [animation-delay:100ms] leading-[0.9] flex-1 min-w-0 w-full text-center md:text-left overflow-visible"
             >
-              <span className="block text-5xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl 2xl:text-[10rem] whitespace-nowrap">PIXEL & PLAY</span>
-              <span className="block text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl 2xl:text-7xl text-transparent bg-clip-text bg-gradient-to-r from-brand-blue to-brand-red mt-0.5 sm:mt-1 whitespace-nowrap">
+              <span className="block text-6xl sm:text-7xl md:text-7xl lg:text-8xl xl:text-9xl 2xl:text-[10rem] whitespace-nowrap max-w-full">PIXEL & PLAY</span>
+              <motion.span
+                ref={rageFreeZoneRef}
+                initial={{ filter: 'blur(20px)', opacity: 0 }}
+                animate={isInView ? { filter: 'blur(0px)', opacity: 1 } : {}}
+                transition={{ duration: 1.2, delay: 0.3 }}
+                className="block text-4xl sm:text-5xl md:text-5xl lg:text-6xl xl:text-7xl 2xl:text-8xl text-transparent bg-clip-text bg-gradient-to-r from-brand-blue to-brand-red mt-0.5 sm:mt-1 break-words sm:whitespace-nowrap max-w-full font-black"
+              >
                 RAGE FREE ZONE
-              </span>
+              </motion.span>
             </h1>
 
             {/* CTA Buttons */}
@@ -46,17 +56,17 @@ export default function HeroSection() {
             >
               <a
                 href="#book"
-                className="group relative px-4 py-2.5 sm:px-5 sm:py-3 md:px-6 md:py-3.5 rounded-xl bg-brand-blue text-white font-semibold text-xs sm:text-sm md:text-base transition-all duration-300 hover:bg-brand-blue/90 hover:scale-105 hover:shadow-lg hover:shadow-brand-blue/50 active:scale-100 backdrop-blur-sm border border-brand-blue/20 flex items-center justify-center gap-2"
+                className="group relative px-5 py-3 sm:px-5 sm:py-3 md:px-6 md:py-3.5 rounded-xl bg-brand-blue text-white font-semibold text-sm sm:text-base md:text-base transition-all duration-300 hover:bg-brand-blue/90 hover:scale-105 hover:shadow-lg hover:shadow-brand-blue/50 active:scale-100 backdrop-blur-sm border border-brand-blue/20 flex items-center justify-center gap-2"
               >
-                <CalendarDays className="w-3.5 h-3.5 sm:w-4 sm:h-4 transition-transform duration-300 group-hover:scale-110 flex-shrink-0" />
+                <CalendarDays className="w-4 h-4 sm:w-4 sm:h-4 transition-transform duration-300 group-hover:scale-110 flex-shrink-0" />
                 <span className="whitespace-nowrap">Join The Chaos</span>
               </a>
 
               <a
                 href="#menu"
-                className="group relative px-4 py-2.5 sm:px-5 sm:py-3 md:px-6 md:py-3.5 rounded-xl bg-brand-red text-white font-semibold text-xs sm:text-sm md:text-base transition-all duration-300 hover:bg-brand-red/90 hover:scale-105 hover:shadow-lg hover:shadow-brand-red/50 active:scale-100 backdrop-blur-sm border border-brand-red/20 flex items-center justify-center gap-2"
+                className="group relative px-5 py-3 sm:px-5 sm:py-3 md:px-6 md:py-3.5 rounded-xl bg-brand-red text-white font-semibold text-sm sm:text-base md:text-base transition-all duration-300 hover:bg-brand-red/90 hover:scale-105 hover:shadow-lg hover:shadow-brand-red/50 active:scale-100 backdrop-blur-sm border border-brand-red/20 flex items-center justify-center gap-2"
               >
-                <Coffee className="w-3.5 h-3.5 sm:w-4 sm:h-4 transition-transform duration-300 group-hover:scale-110 flex-shrink-0" />
+                <Coffee className="w-4 h-4 sm:w-4 sm:h-4 transition-transform duration-300 group-hover:scale-110 flex-shrink-0" />
                 <span className="whitespace-nowrap">Refuel The Action</span>
               </a>
             </div>
