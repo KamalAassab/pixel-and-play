@@ -3,7 +3,7 @@
 import * as React from "react"; // Added React import
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { Calendar as CalendarIcon, Clock, User, Users, Phone, MessageSquare, Gamepad2, Sparkles, Send } from "lucide-react";
+import { Calendar as CalendarIcon, Clock, User, Users, Phone, MessageSquare, Gamepad2, Sparkles, Send, Square, CreditCard } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
 import * as DropdownMenuPrimitive from "@radix-ui/react-dropdown-menu";
@@ -208,14 +208,14 @@ const CalendarHeader = () => (
   <header className="flex w-full items-center gap-1 pb-1">
     <ButtonRac
       slot="previous"
-      className="flex size-9 items-center justify-center rounded-lg text-muted-foreground/80 outline-offset-2 transition-colors hover:bg-zinc-800 hover:text-white focus:outline-none data-[focus-visible]:outline data-[focus-visible]:outline-2 data-[focus-visible]:outline-ring/70"
+      className="flex size-9 items-center justify-center rounded-lg text-white/70 outline-offset-2 transition-colors hover:bg-white/20 hover:text-white focus:outline-none data-[focus-visible]:outline data-[focus-visible]:outline-2 data-[focus-visible]:outline-ring/70"
     >
       <ChevronLeftIcon className="size-4" strokeWidth={2} />
     </ButtonRac>
     <HeadingRac className="grow text-center text-sm font-medium text-white" />
     <ButtonRac
       slot="next"
-      className="flex size-9 items-center justify-center rounded-lg text-muted-foreground/80 outline-offset-2 transition-colors hover:bg-zinc-800 hover:text-white focus:outline-none data-[focus-visible]:outline data-[focus-visible]:outline-2 data-[focus-visible]:outline-ring/70"
+      className="flex size-9 items-center justify-center rounded-lg text-white/70 outline-offset-2 transition-colors hover:bg-white/20 hover:text-white focus:outline-none data-[focus-visible]:outline data-[focus-visible]:outline-2 data-[focus-visible]:outline-ring/70"
     >
       <ChevronRightIcon className="size-4" strokeWidth={2} />
     </ButtonRac>
@@ -229,7 +229,7 @@ const CalendarGridComponent = ({ isRange = false }: { isRange?: boolean }) => {
     <CalendarGridRac>
       <CalendarGridHeaderRac>
         {(day) => (
-          <CalendarHeaderCellRac className="size-9 rounded-lg p-0 text-xs font-medium text-muted-foreground/80">
+          <CalendarHeaderCellRac className="size-9 rounded-lg p-0 text-xs font-medium text-white/70">
             {day}
           </CalendarHeaderCellRac>
         )}
@@ -239,12 +239,12 @@ const CalendarGridComponent = ({ isRange = false }: { isRange?: boolean }) => {
           <CalendarCellRac
             date={date}
             className={cn(
-              "relative flex size-9 items-center justify-center whitespace-nowrap rounded-lg border border-transparent p-0 text-sm font-normal text-foreground outline-offset-2 duration-150 [transition-property:color,background-color,border-radius,box-shadow] focus:outline-none data-[disabled]:pointer-events-none data-[unavailable]:pointer-events-none data-[focus-visible]:z-10 data-[hovered]:bg-zinc-800 data-[selected]:bg-blue-600 data-[hovered]:text-white data-[selected]:text-white data-[unavailable]:line-through data-[disabled]:opacity-30 data-[unavailable]:opacity-30 data-[focus-visible]:outline data-[focus-visible]:outline-2 data-[focus-visible]:outline-ring/70 cursor-pointer text-white/80",
+              "relative flex size-9 items-center justify-center whitespace-nowrap rounded-lg border border-transparent p-0 text-sm font-normal text-foreground outline-offset-2 duration-150 [transition-property:color,background-color,border-radius,box-shadow] focus:outline-none data-[disabled]:pointer-events-none data-[unavailable]:pointer-events-none data-[focus-visible]:z-10 data-[hovered]:bg-white/20 data-[selected]:bg-brand-red data-[hovered]:text-brand-blue data-[selected]:text-white data-[unavailable]:line-through data-[disabled]:opacity-30 data-[unavailable]:opacity-30 data-[focus-visible]:outline data-[focus-visible]:outline-2 data-[focus-visible]:outline-ring/70 cursor-pointer text-white",
               // Today indicator styles
               date.compare(now) === 0 &&
               cn(
-                "after:pointer-events-none after:absolute after:bottom-1 after:start-1/2 after:z-10 after:size-[3px] after:-translate-x-1/2 after:rounded-full after:bg-blue-500",
-                "data-[selected]:after:bg-white",
+                "after:pointer-events-none after:absolute after:bottom-1 after:start-1/2 after:z-10 after:size-[3px] after:-translate-x-1/2 after:rounded-full after:bg-white",
+                "data-[selected]:after:bg-brand-red",
               ),
             )}
           />
@@ -275,8 +275,8 @@ export default function BookingSection() {
     phone: "",
     date: "",
     time: "",
-    guests: "2",
-    type: "Gaming Session",
+    guests: "",
+    type: "",
     duration: "2 Hours",
     notes: ""
   });
@@ -374,17 +374,17 @@ Looking forward to your confirmation! To clarify any details, feel free to ask. 
             </h2>
           </motion.div>
 
-          <div className="w-full bg-zinc-900/80 backdrop-blur-xl border border-white/10 p-5 md:p-8 rounded-2xl shadow-[0_0_50px_-12px_rgba(0,0,0,0.5)] relative overflow-y-auto lg:overflow-visible scrollbar-hide">
+          <div className="w-full bg-brand-blue/90 backdrop-blur-xl border border-brand-blue/30 p-5 md:p-8 rounded-2xl shadow-[0_0_50px_-12px_rgba(27,79,216,0.5)] relative overflow-y-auto lg:overflow-visible scrollbar-hide">
             <form onSubmit={handleSubmit} className="space-y-4 relative z-10">
 
               <div className="grid grid-cols-2 gap-4">
                 {/* Name */}
                 <div className="group space-y-1.5">
-                  <label className="text-[10px] lg:text-xs font-bold text-zinc-500 uppercase tracking-widest group-focus-within:text-blue-500 transition-colors">
-                    Full Name <span className="text-red-500">*</span>
+                  <label className="text-[10px] lg:text-xs font-bold text-white/80 uppercase tracking-widest group-focus-within:text-white transition-colors">
+                    Full Name <span className="text-brand-red">*</span>
                   </label>
                   <div className="relative">
-                    <User size={14} className="absolute left-3 top-1/2 -translate-y-1/2 text-zinc-500 group-focus-within:text-blue-500 transition-colors" />
+                    <User size={14} className="absolute left-3 top-1/2 -translate-y-1/2 text-white/60 group-focus-within:text-white transition-colors" />
                     <input
                       type="text"
                       name="name"
@@ -392,18 +392,18 @@ Looking forward to your confirmation! To clarify any details, feel free to ask. 
                       placeholder="Enter your name"
                       value={formData.name}
                       onChange={handleChange}
-                      className="w-full bg-black/50 border border-white/5 rounded-lg pl-9 pr-3 py-2.5 text-white placeholder:text-zinc-700 focus:outline-none focus:border-blue-500/50 focus:bg-blue-500/5 focus:shadow-[0_0_20px_-5px_rgba(59,130,246,0.3)] transition-all text-xs lg:text-sm"
+                      className="w-full bg-white/10 border border-white/20 rounded-lg pl-9 pr-3 py-2.5 text-white placeholder:text-white/50 focus:outline-none focus:border-white/50 focus:bg-white/20 focus:shadow-[0_0_20px_-5px_rgba(255,255,255,0.3)] transition-all text-xs lg:text-sm"
                     />
                   </div>
                 </div>
 
                 {/* Phone */}
                 <div className="group space-y-1.5">
-                  <label className="text-[10px] lg:text-xs font-bold text-zinc-500 uppercase tracking-widest group-focus-within:text-red-500 transition-colors">
-                    Phone Number <span className="text-red-500">*</span>
+                  <label className="text-[10px] lg:text-xs font-bold text-white/80 uppercase tracking-widest group-focus-within:text-white transition-colors">
+                    Phone Number <span className="text-brand-red">*</span>
                   </label>
                   <div className="relative">
-                    <Phone size={14} className="absolute left-3 top-1/2 -translate-y-1/2 text-zinc-500 group-focus-within:text-red-500 transition-colors" />
+                    <Phone size={14} className="absolute left-3 top-1/2 -translate-y-1/2 text-white/60 group-focus-within:text-white transition-colors" />
                     <input
                       type="tel"
                       name="phone"
@@ -411,7 +411,7 @@ Looking forward to your confirmation! To clarify any details, feel free to ask. 
                       placeholder="06 00 00 00 00"
                       value={formData.phone}
                       onChange={handleChange}
-                      className="w-full bg-black/50 border border-white/5 rounded-lg pl-9 pr-3 py-2.5 text-white placeholder:text-zinc-700 focus:outline-none focus:border-red-500/50 focus:bg-red-500/5 focus:shadow-[0_0_20px_-5px_rgba(239,68,68,0.3)] transition-all text-xs lg:text-sm"
+                      className="w-full bg-white/10 border border-white/20 rounded-lg pl-9 pr-3 py-2.5 text-white placeholder:text-white/50 focus:outline-none focus:border-white/50 focus:bg-white/20 focus:shadow-[0_0_20px_-5px_rgba(255,255,255,0.3)] transition-all text-xs lg:text-sm"
                     />
                   </div>
                 </div>
@@ -420,26 +420,36 @@ Looking forward to your confirmation! To clarify any details, feel free to ask. 
               <div className="grid grid-cols-2 gap-4">
                 {/* Type */}
                 <div className="group space-y-1.5">
-                  <label className="text-[10px] lg:text-xs font-bold text-zinc-500 uppercase tracking-widest group-focus-within:text-blue-500 transition-colors">
-                    Choose Activity <span className="text-red-500">*</span>
+                  <label className="text-[10px] lg:text-xs font-bold text-white/80 uppercase tracking-widest group-focus-within:text-white transition-colors">
+                    Choose Activity <span className="text-brand-red">*</span>
                   </label>
                   <div className="relative">
-                    <Gamepad2 size={14} className="absolute left-3 top-1/2 -translate-y-1/2 z-10 text-zinc-500 group-focus-within:text-blue-500 transition-colors" />
+                    <Gamepad2 size={14} className="absolute left-3 top-1/2 -translate-y-1/2 z-10 text-white/60 group-focus-within:text-white transition-colors" />
                     <DropdownMenu>
                       <DropdownMenuTrigger asChild>
                         <Button
                           variant="outline"
-                          className="w-full bg-black/50 border border-white/5 rounded-lg pl-9 pr-3 py-2.5 h-auto text-white justify-start font-normal hover:bg-black/60 hover:text-white focus:border-blue-500/50 focus:bg-blue-500/5 transition-all text-xs lg:text-sm"
+                          className={cn(
+                            "w-full border rounded-lg pl-9 pr-3 py-2.5 h-auto text-white justify-start font-normal transition-all text-xs lg:text-sm",
+                            formData.type
+                              ? "bg-brand-red border-brand-red/50 hover:bg-brand-red/90"
+                              : "bg-white/10 border-white/20 hover:bg-white/20 focus:border-white/50 focus:bg-white/20"
+                          )}
                         >
-                          {formData.type}
+                          {formData.type || "Choose Activity"}
                         </Button>
                       </DropdownMenuTrigger>
-                      <DropdownMenuContent className="w-[200px] bg-zinc-900 border-white/10 text-white">
+                      <DropdownMenuContent className="w-[200px] bg-brand-blue border-white/30 text-white shadow-xl">
                         {["Gaming Session", "Board Games", "Birthday Party", "Private Event"].map((type) => (
                           <DropdownMenuItem
                             key={type}
                             onClick={() => setFormData({ ...formData, type })}
-                            className="focus:bg-zinc-800 focus:text-white cursor-pointer"
+                            className={cn(
+                              "cursor-pointer hover:bg-white/10",
+                              formData.type === type
+                                ? "bg-brand-red text-white"
+                                : "focus:bg-white/20 focus:text-white"
+                            )}
                           >
                             {type}
                           </DropdownMenuItem>
@@ -451,26 +461,36 @@ Looking forward to your confirmation! To clarify any details, feel free to ask. 
 
                 {/* Guests */}
                 <div className="group space-y-1.5">
-                  <label className="text-[10px] lg:text-xs font-bold text-zinc-500 uppercase tracking-widest group-focus-within:text-red-500 transition-colors">
-                    How many people <span className="text-red-500">*</span>
+                  <label className="text-[10px] lg:text-xs font-bold text-white/80 uppercase tracking-widest group-focus-within:text-white transition-colors">
+                    How many people <span className="text-brand-red">*</span>
                   </label>
                   <div className="relative">
-                    <Users size={14} className="absolute left-3 top-1/2 -translate-y-1/2 z-10 text-zinc-500 group-focus-within:text-red-500 transition-colors" />
+                    <Users size={14} className="absolute left-3 top-1/2 -translate-y-1/2 z-10 text-white/60 group-focus-within:text-white transition-colors" />
                     <DropdownMenu>
                       <DropdownMenuTrigger asChild>
                         <Button
                           variant="outline"
-                          className="w-full bg-black/50 border border-white/5 rounded-lg pl-9 pr-3 py-2.5 h-auto text-white justify-start font-normal hover:bg-black/60 hover:text-white focus:border-red-500/50 focus:bg-red-500/5 transition-all text-xs lg:text-sm"
+                          className={cn(
+                            "w-full border rounded-lg pl-9 pr-3 py-2.5 h-auto text-white justify-start font-normal transition-all text-xs lg:text-sm",
+                            formData.guests
+                              ? "bg-brand-red border-brand-red/50 hover:bg-brand-red/90"
+                              : "bg-white/10 border-white/20 hover:bg-white/20 focus:border-white/50 focus:bg-white/20"
+                          )}
                         >
-                          {formData.guests} {parseInt(formData.guests) === 1 ? 'Person' : 'People'}
+                          {formData.guests ? `${formData.guests} ${parseInt(formData.guests) === 1 ? 'Person' : 'People'}` : "How many people"}
                         </Button>
                       </DropdownMenuTrigger>
-                      <DropdownMenuContent className="w-[200px] bg-zinc-900 border-white/10 text-white max-h-[300px] overflow-y-auto">
+                      <DropdownMenuContent className="w-[200px] bg-brand-blue border-white/30 text-white max-h-[300px] overflow-y-auto shadow-xl">
                         {[1, 2, 3, 4, 5, 6, 7, 8, "9+"].map(n => (
                           <DropdownMenuItem
                             key={n}
                             onClick={() => setFormData({ ...formData, guests: n.toString() })}
-                            className="focus:bg-zinc-800 focus:text-white cursor-pointer"
+                            className={cn(
+                              "cursor-pointer hover:bg-white/10",
+                              formData.guests === n.toString()
+                                ? "bg-brand-red text-white"
+                                : "focus:bg-white/20 focus:text-white"
+                            )}
                           >
                             {n} {n === 1 ? 'Person' : 'People'}
                           </DropdownMenuItem>
@@ -484,16 +504,21 @@ Looking forward to your confirmation! To clarify any details, feel free to ask. 
               <div className="grid grid-cols-2 gap-4">
                 {/* Date */}
                 <div className="group space-y-1.5">
-                  <label className="text-[10px] lg:text-xs font-bold text-zinc-500 uppercase tracking-widest group-focus-within:text-blue-500 transition-colors">
-                    Date <span className="text-red-500">*</span>
+                  <label className="text-[10px] lg:text-xs font-bold text-white/80 uppercase tracking-widest group-focus-within:text-white transition-colors">
+                    Date <span className="text-brand-red">*</span>
                   </label>
                   <div className="relative">
-                    <CalendarIcon size={14} className="absolute left-3 top-1/2 -translate-y-1/2 z-10 text-zinc-500 group-focus-within:text-blue-500 transition-colors" />
+                    <CalendarIcon size={14} className="absolute left-3 top-1/2 -translate-y-1/2 z-10 text-white/60 group-focus-within:text-white transition-colors" />
                     <DropdownMenu>
                       <DropdownMenuTrigger asChild>
                         <Button
                           variant="outline"
-                          className="w-full bg-black/50 border border-white/5 rounded-lg pl-9 pr-3 py-2.5 h-auto text-white justify-start font-normal hover:bg-black/60 hover:text-white focus:border-blue-500/50 focus:bg-blue-500/5 transition-all text-xs lg:text-sm"
+                          className={cn(
+                            "w-full border rounded-lg pl-9 pr-3 py-2.5 h-auto text-white justify-start font-normal transition-all text-xs lg:text-sm",
+                            formData.date
+                              ? "bg-brand-red border-brand-red/50 hover:bg-brand-red/90"
+                              : "bg-white/10 border-white/20 hover:bg-white/20 focus:border-white/50 focus:bg-white/20"
+                          )}
                         >
                           {formData.date || "Select Date"}
                         </Button>
@@ -501,7 +526,7 @@ Looking forward to your confirmation! To clarify any details, feel free to ask. 
                       <DropdownMenuContent className="w-auto p-0 bg-transparent border-none shadow-none">
                         <Calendar
                           aria-label="Appointment date"
-                          className="bg-zinc-900 border border-white/10 rounded-lg p-3 shadow-xl text-white"
+                          className="bg-brand-blue border border-white/30 rounded-lg p-3 shadow-xl text-white"
                           value={formData.date ? parseDate(formData.date) : null}
                           onChange={(date: DateValue) => setFormData({ ...formData, date: date.toString() })}
                           minValue={today(getLocalTimeZone())}
@@ -513,21 +538,26 @@ Looking forward to your confirmation! To clarify any details, feel free to ask. 
 
                 {/* Time (Restricted 2PM - 12AM) */}
                 <div className="group space-y-1.5">
-                  <label className="text-[10px] lg:text-xs font-bold text-zinc-500 uppercase tracking-widest group-focus-within:text-red-500 transition-colors">
-                    Time (14:00 - 00:00) <span className="text-red-500">*</span>
+                  <label className="text-[10px] lg:text-xs font-bold text-white/80 uppercase tracking-widest group-focus-within:text-white transition-colors">
+                    Time (14:00 - 00:00) <span className="text-brand-red">*</span>
                   </label>
                   <div className="relative">
-                    <Clock size={14} className="absolute left-3 top-1/2 -translate-y-1/2 z-10 text-zinc-500 group-focus-within:text-red-500 transition-colors" />
+                    <Clock size={14} className="absolute left-3 top-1/2 -translate-y-1/2 z-10 text-white/60 group-focus-within:text-white transition-colors" />
                     <DropdownMenu>
                       <DropdownMenuTrigger asChild>
                         <Button
                           variant="outline"
-                          className="w-full bg-black/50 border border-white/5 rounded-lg pl-9 pr-3 py-2.5 h-auto text-white justify-start font-normal hover:bg-black/60 hover:text-white focus:border-red-500/50 focus:bg-red-500/5 transition-all text-xs lg:text-sm"
+                          className={cn(
+                            "w-full border rounded-lg pl-9 pr-3 py-2.5 h-auto text-white justify-start font-normal transition-all text-xs lg:text-sm",
+                            formData.time
+                              ? "bg-brand-red border-brand-red/50 hover:bg-brand-red/90"
+                              : "bg-white/10 border-white/20 hover:bg-white/20 focus:border-white/50 focus:bg-white/20"
+                          )}
                         >
                           {formData.time || "Select Time"}
                         </Button>
                       </DropdownMenuTrigger>
-                      <DropdownMenuContent className="w-[200px] bg-zinc-900 border-white/10 text-white max-h-[300px] overflow-y-auto">
+                      <DropdownMenuContent className="w-[200px] bg-brand-blue border-white/30 text-white max-h-[300px] overflow-y-auto shadow-xl">
                         {[...Array(21)].map((_, i) => {
                           const totalMinutes = 14 * 60 + i * 30; // Start at 14:00, add 30 mins
                           const hour = Math.floor(totalMinutes / 60) % 24;
@@ -537,7 +567,12 @@ Looking forward to your confirmation! To clarify any details, feel free to ask. 
                             <DropdownMenuItem
                               key={timeString}
                               onClick={() => setFormData({ ...formData, time: timeString })}
-                              className="focus:bg-zinc-800 focus:text-white cursor-pointer"
+                              className={cn(
+                                "cursor-pointer hover:bg-white/10",
+                                formData.time === timeString
+                                  ? "bg-brand-red text-white"
+                                  : "focus:bg-white/20 focus:text-white"
+                              )}
                             >
                               {timeString}
                             </DropdownMenuItem>
@@ -551,31 +586,129 @@ Looking forward to your confirmation! To clarify any details, feel free to ask. 
 
               {/* Notes */}
               <div className="group space-y-1.5">
-                <label className="text-[10px] lg:text-xs font-bold text-zinc-500 uppercase tracking-widest group-focus-within:text-blue-500 transition-colors">
+                <label className="text-[10px] lg:text-xs font-bold text-white/80 uppercase tracking-widest group-focus-within:text-white transition-colors">
                   Special Requests
                 </label>
                 <div className="relative">
-                  <MessageSquare size={14} className="absolute left-3 top-3 text-zinc-500 group-focus-within:text-blue-500 transition-colors" />
+                  <MessageSquare size={14} className="absolute left-3 top-3 text-white/60 group-focus-within:text-white transition-colors" />
                   <textarea
                     name="notes"
                     rows={2}
                     placeholder="Specific games, allergies, birthday wishes..."
                     value={formData.notes}
                     onChange={handleChange}
-                    className="w-full bg-black/50 border border-white/5 rounded-lg pl-9 pr-3 py-2.5 text-white placeholder:text-zinc-700 focus:outline-none focus:border-blue-500/50 focus:bg-blue-500/5 focus:shadow-[0_0_20px_-5px_rgba(59,130,246,0.3)] transition-all resize-none text-xs lg:text-sm"
+                    className="w-full bg-white/10 border border-white/20 rounded-lg pl-9 pr-3 py-2.5 text-white placeholder:text-white/50 focus:outline-none focus:border-white/50 focus:bg-white/20 focus:shadow-[0_0_20px_-5px_rgba(255,255,255,0.3)] transition-all resize-none text-xs lg:text-sm"
                   />
                 </div>
               </div>
 
-              <div className="pt-2">
+              <div className="pt-2 relative">
                 <button
                   type="submit"
-                  className="w-full relative group overflow-hidden rounded-xl bg-gradient-to-r from-blue-600 via-purple-600 to-red-600 p-4 transition-all duration-300 hover:scale-[1.02] hover:shadow-[0_0_40px_-10px_rgba(168,85,247,0.5)] shadow-[0_0_20px_-10px_rgba(168,85,247,0.3)]"
+                  className="w-full relative group overflow-hidden rounded-xl bg-gradient-to-r from-brand-red via-brand-red/90 to-brand-red p-4 transition-all duration-300 hover:scale-[1.02] hover:shadow-[0_0_40px_-10px_rgba(255,87,87,0.5)] shadow-[0_0_20px_-10px_rgba(255,87,87,0.3)] z-10"
                 >
-                  <div className="absolute inset-0 bg-white/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                  <div className="relative flex items-center justify-center gap-3">
-                    <span className="font-display font-bold text-white tracking-widest uppercase text-sm">Lock It In</span>
-                    <Send size={18} className="text-white group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform duration-300" />
+                  {/* Background Layer */}
+                  <div className="absolute inset-0 rounded-xl bg-gradient-to-r from-brand-red via-brand-red/90 to-brand-red -z-10" />
+                  
+                  {/* Floating Gaming Icons Inside Button */}
+                  <div className="absolute inset-0 pointer-events-none overflow-hidden rounded-xl z-0">
+                    {/* Multiple Console Icons */}
+                    {[...Array(3)].map((_, i) => {
+                      const baseX = 15 + (i * 35);
+                      const baseY = 25 + ((i % 2) * 35);
+                      return (
+                        <motion.div
+                          key={`console-${i}`}
+                          initial={{ opacity: 0, x: baseX, y: baseY }}
+                          animate={{
+                            opacity: [0.6, 0.9, 0.6],
+                            x: [
+                              baseX,
+                              baseX + (Math.random() * 40 - 20),
+                              baseX + (Math.random() * 40 - 20),
+                              baseX,
+                            ],
+                            y: [
+                              baseY,
+                              baseY + (Math.random() * 30 - 15),
+                              baseY + (Math.random() * 30 - 15),
+                              baseY,
+                            ],
+                            rotate: [0, 360, 0],
+                          }}
+                          transition={{
+                            duration: 4 + Math.random() * 2,
+                            repeat: Infinity,
+                            ease: "easeInOut",
+                            delay: i * 0.5,
+                          }}
+                          className="absolute z-10"
+                          style={{
+                            left: 0,
+                            top: 0,
+                          }}
+                        >
+                          <Gamepad2 size={24} className="text-white/80 drop-shadow-[0_2px_8px_rgba(0,0,0,0.8)]" />
+                        </motion.div>
+                      );
+                    })}
+
+                    {/* Multiple Dice Icons */}
+                    {[...Array(3)].map((_, i) => {
+                      const baseX = 20 + (i * 30);
+                      const baseY = 40 + ((i % 2) * 30);
+                      return (
+                        <motion.div
+                          key={`dice-${i}`}
+                          initial={{ opacity: 0, x: baseX, y: baseY }}
+                          animate={{
+                            opacity: [0.6, 0.9, 0.6],
+                            x: [
+                              baseX,
+                              baseX + (Math.random() * 40 - 20),
+                              baseX + (Math.random() * 40 - 20),
+                              baseX,
+                            ],
+                            y: [
+                              baseY,
+                              baseY + (Math.random() * 30 - 15),
+                              baseY + (Math.random() * 30 - 15),
+                              baseY,
+                            ],
+                            rotate: [0, 360, 0],
+                          }}
+                          transition={{
+                            duration: 5 + Math.random() * 2,
+                            repeat: Infinity,
+                            ease: "easeInOut",
+                            delay: i * 0.6,
+                          }}
+                          className="absolute z-10"
+                          style={{
+                            left: 0,
+                            top: 0,
+                          }}
+                        >
+                          <div className="relative w-6 h-6">
+                            <Square size={24} className="text-white/80 drop-shadow-[0_2px_8px_rgba(0,0,0,0.8)]" />
+                            <div className="absolute inset-0 flex items-center justify-center">
+                              <div className="grid grid-cols-2 gap-1">
+                                <div className="w-1 h-1 bg-white/80 rounded-full" />
+                                <div className="w-1 h-1 bg-white/80 rounded-full" />
+                                <div className="w-1 h-1 bg-white/80 rounded-full" />
+                                <div className="w-1 h-1 bg-white/80 rounded-full" />
+                              </div>
+                            </div>
+                          </div>
+                        </motion.div>
+                      );
+                    })}
+                  </div>
+
+                  <div className="absolute inset-0 bg-white/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-xl z-0" />
+                  <div className="relative flex items-center justify-center gap-3 z-20">
+                    <span className="font-display font-bold text-white tracking-widest uppercase text-sm drop-shadow-[0_2px_4px_rgba(0,0,0,0.3)]">Lock It In</span>
+                    <Send size={18} className="text-white group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform duration-300 drop-shadow-[0_2px_4px_rgba(0,0,0,0.3)]" />
                   </div>
                 </button>
               </div>

@@ -29,7 +29,7 @@ export default function HeroSection() {
       <div className="container relative z-10 w-full flex flex-col justify-end px-4 sm:px-6 md:px-8 lg:px-12 pb-0 pointer-events-none"> {/* Added pointer-events-none to container, will re-enable on interactive children */}
 
         <div className="max-w-7xl pointer-events-auto pb-4 sm:pb-6 md:pb-8 w-full">
-          <div className="flex flex-col lg:flex-row items-start lg:items-end gap-4 sm:gap-5 md:gap-6 lg:gap-8">
+          <div className="flex flex-col lg:flex-row items-start lg:items-end gap-4 sm:gap-5 md:gap-6 lg:gap-8 mb-4 sm:mb-6 md:mb-8">
             {/* Main Heading */}
             <h1
               className="font-bold tracking-tighter text-white animate-fade-in [animation-delay:100ms] leading-[0.9] flex-1 min-w-0 w-full text-center md:text-left"
