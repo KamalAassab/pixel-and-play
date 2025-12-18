@@ -3,7 +3,7 @@
 import * as React from "react"; // Added React import
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { Calendar as CalendarIcon, Clock, User, Users, Phone, MessageSquare, Gamepad2, Sparkles, Send, Square, CreditCard } from "lucide-react";
+import { Calendar as CalendarIcon, Clock, User, Users, Phone, MessageSquare, Gamepad2, Sparkles, Send, CreditCard } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
 import * as DropdownMenuPrimitive from "@radix-ui/react-dropdown-menu";
@@ -335,7 +335,7 @@ Looking forward to your confirmation! To clarify any details, feel free to ask. 
 
 
   return (
-    <section id="book" className="relative w-full overflow-hidden bg-zinc-950 flex flex-col lg:flex-row min-h-screen lg:min-h-[100vh] pb-4 md:pb-8 lg:pb-0">
+    <section id="book" className="relative w-full overflow-hidden bg-zinc-950 flex flex-col lg:flex-row min-h-screen lg:min-h-[100vh] pb-0">
 
       {/* Left Column: Image with Blur Edge (Desktop Only) */}
       <div className="relative hidden lg:block flex-1 min-w-0 min-h-full overflow-hidden">
@@ -354,7 +354,7 @@ Looking forward to your confirmation! To clarify any details, feel free to ask. 
       </div>
 
       {/* Middle Column: Form */}
-      <div className="relative w-full lg:w-[500px] xl:w-[600px] lg:flex-none lg:h-full shrink-0 flex flex-col items-center justify-center px-4 pt-4 pb-4 md:px-4 md:pt-8 md:pb-8 lg:p-8 bg-zinc-950">
+      <div className="relative w-full lg:w-[500px] xl:w-[600px] lg:flex-none lg:h-full shrink-0 flex flex-col items-center justify-center px-4 pt-4 pb-0 md:px-4 md:pt-8 md:pb-8 lg:p-8 bg-zinc-950">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -610,101 +610,6 @@ Looking forward to your confirmation! To clarify any details, feel free to ask. 
                   {/* Background Layer */}
                   <div className="absolute inset-0 rounded-xl bg-gradient-to-r from-brand-red via-brand-red/90 to-brand-red -z-10" />
                   
-                  {/* Floating Gaming Icons Inside Button */}
-                  <div className="absolute inset-0 pointer-events-none overflow-hidden rounded-xl z-0">
-                    {/* Multiple Console Icons */}
-                    {[...Array(3)].map((_, i) => {
-                      const baseX = 15 + (i * 35);
-                      const baseY = 25 + ((i % 2) * 35);
-                      return (
-                        <motion.div
-                          key={`console-${i}`}
-                          initial={{ opacity: 0, x: baseX, y: baseY }}
-                          animate={{
-                            opacity: [0.6, 0.9, 0.6],
-                            x: [
-                              baseX,
-                              baseX + (Math.random() * 40 - 20),
-                              baseX + (Math.random() * 40 - 20),
-                              baseX,
-                            ],
-                            y: [
-                              baseY,
-                              baseY + (Math.random() * 30 - 15),
-                              baseY + (Math.random() * 30 - 15),
-                              baseY,
-                            ],
-                            rotate: [0, 360, 0],
-                          }}
-                          transition={{
-                            duration: 4 + Math.random() * 2,
-                            repeat: Infinity,
-                            ease: "easeInOut",
-                            delay: i * 0.5,
-                          }}
-                          className="absolute z-10"
-                          style={{
-                            left: 0,
-                            top: 0,
-                          }}
-                        >
-                          <Gamepad2 size={24} className="text-white/80 drop-shadow-[0_2px_8px_rgba(0,0,0,0.8)]" />
-                        </motion.div>
-                      );
-                    })}
-
-                    {/* Multiple Dice Icons */}
-                    {[...Array(3)].map((_, i) => {
-                      const baseX = 20 + (i * 30);
-                      const baseY = 40 + ((i % 2) * 30);
-                      return (
-                        <motion.div
-                          key={`dice-${i}`}
-                          initial={{ opacity: 0, x: baseX, y: baseY }}
-                          animate={{
-                            opacity: [0.6, 0.9, 0.6],
-                            x: [
-                              baseX,
-                              baseX + (Math.random() * 40 - 20),
-                              baseX + (Math.random() * 40 - 20),
-                              baseX,
-                            ],
-                            y: [
-                              baseY,
-                              baseY + (Math.random() * 30 - 15),
-                              baseY + (Math.random() * 30 - 15),
-                              baseY,
-                            ],
-                            rotate: [0, 360, 0],
-                          }}
-                          transition={{
-                            duration: 5 + Math.random() * 2,
-                            repeat: Infinity,
-                            ease: "easeInOut",
-                            delay: i * 0.6,
-                          }}
-                          className="absolute z-10"
-                          style={{
-                            left: 0,
-                            top: 0,
-                          }}
-                        >
-                          <div className="relative w-6 h-6">
-                            <Square size={24} className="text-white/80 drop-shadow-[0_2px_8px_rgba(0,0,0,0.8)]" />
-                            <div className="absolute inset-0 flex items-center justify-center">
-                              <div className="grid grid-cols-2 gap-1">
-                                <div className="w-1 h-1 bg-white/80 rounded-full" />
-                                <div className="w-1 h-1 bg-white/80 rounded-full" />
-                                <div className="w-1 h-1 bg-white/80 rounded-full" />
-                                <div className="w-1 h-1 bg-white/80 rounded-full" />
-                              </div>
-                            </div>
-                          </div>
-                        </motion.div>
-                      );
-                    })}
-                  </div>
-
                   <div className="absolute inset-0 bg-white/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-xl z-0" />
                   <div className="relative flex items-center justify-center gap-3 z-20">
                     <span className="font-display font-bold text-white tracking-widest uppercase text-sm drop-shadow-[0_2px_4px_rgba(0,0,0,0.3)]">Lock It In</span>

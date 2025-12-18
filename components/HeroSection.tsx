@@ -10,7 +10,7 @@ export default function HeroSection() {
   const isInView = useInView(rageFreeZoneRef, { once: true, margin: "-100px" });
 
   return (
-    <section className="relative h-screen sm:min-h-screen flex items-end justify-center overflow-hidden bg-background">
+    <section className="relative h-screen sm:min-h-screen flex items-end justify-center overflow-hidden bg-background mb-4 md:mb-0">
       {/* Dynamic Background */}
       {/* Background Image & Overlay */}
       <div className="absolute inset-0 w-full h-full z-0">
@@ -30,7 +30,7 @@ export default function HeroSection() {
         <div className="absolute inset-0 bg-black/20" /> {/* General darkening */}
       </div>
 
-      <div className="container relative z-10 w-full flex flex-col justify-end px-3 sm:px-6 md:px-8 lg:px-12 pb-4 sm:pb-0 pointer-events-none"> {/* Added pointer-events-none to container, will re-enable on interactive children */}
+      <div className="container relative z-10 w-full flex flex-col justify-end px-3 sm:px-6 md:px-8 lg:px-12 pb-12 sm:pb-0 pointer-events-none"> {/* Added pointer-events-none to container, will re-enable on interactive children */}
 
         <div className="max-w-7xl pointer-events-auto pb-2 sm:pb-4 md:pb-6 lg:pb-8 w-full">
           <div className="flex flex-col lg:flex-row items-start lg:items-end gap-3 sm:gap-5 md:gap-6 lg:gap-8 mb-2 sm:mb-4 md:mb-6 lg:mb-8">
