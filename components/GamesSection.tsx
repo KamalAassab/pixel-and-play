@@ -34,25 +34,25 @@ const boardGamesCount = getGamesByType("board").length;
 
 const categoryConfig = {
   console: {
-    title: "Console Games",
+    title: "Console Wars",
     icon: Gamepad2,
-    description: "Experience multiplayer excitement on PS5 & Xbox with friends",
+    description: "Where rivalries are born and legends made",
     color: "brand-blue",
     count: videoGamesCount,
     price: "30 DH/hour",
   },
   card: {
-    title: "Cards Games",
+    title: "Card Sharks",
     icon: CreditCard,
-    description: "Gather your squad for epic card battles and strategy",
+    description: "Bluff, bet, and outsmart your friends",
     color: "brand-red",
     count: cardGamesCount,
     price: "10 DH/hour/table",
   },
   board: {
-    title: "Boards Games",
+    title: "Tabletop Mayhem",
     icon: LayoutGrid,
-    description: "Share laughs and challenge friends with our classic collection",
+    description: "Laughter, betrayal, and unforgettable moments",
     color: "brand-blue",
     count: boardGamesCount,
     price: "10 DH/hour/table",
@@ -132,7 +132,7 @@ export default function GamesSection() {
           className="mb-10 md:mb-12"
         >
           <h2 className="w-fit block mx-auto text-4xl md:text-5xl font-display font-bold tracking-tight text-white">
-            Our Game Library
+            The Arsenal
           </h2>
         </motion.div>
 
@@ -319,7 +319,7 @@ export default function GamesSection() {
                     {selectedGames.length === 0 && (
                       <div className="flex flex-col items-center justify-center py-20 opacity-50">
                         <LayoutGrid size={40} className="text-white mb-3" />
-                        <p className="text-white text-lg font-light">No games available</p>
+                        <p className="text-white text-lg font-light">The arsenal is empty</p>
                       </div>
                     )}
 

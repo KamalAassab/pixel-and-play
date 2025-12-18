@@ -36,20 +36,20 @@ export default function FAQSection() {
 
     const faqItems = [
         {
-            q: "Do I need to book in advance?",
-            a: "Weekends can get busy! We highly recommend booking via WhatsApp to secure your spot, especially for PS5 and Switch sessions."
+            q: "Do I need to secure my spot?",
+            a: "The arena fills up fast. Lock in your session via WhatsApp before the chaos peaks."
         },
         {
-            q: "Can I bring my own games?",
-            a: "Absolutely! Feel free to bring your own Switch dockable console or board games if you wish. However, we have a large library for you to explore."
+            q: "Can I bring my own gear?",
+            a: "Bring your own weapons if you want. But our arsenal is fully stocked and ready for you."
         },
         {
-            q: "Is there food available?",
-            a: "Yes! We serve a variety of sweet and savory crepes, along with premium coffee, shakes, and mocktails. Check our menu section!"
+            q: "Need fuel?",
+            a: "We fuel the madness. Sweet, savory, cold, or hot – we've got what you need to keep playing."
         },
         {
-            q: "Do you host private events?",
-            a: "Yes, we offer full venue privatization for birthdays and corporate team building. Contact us for custom packages."
+            q: "Want the place to yourself?",
+            a: "Take over the whole spot. Birthdays, team battles, or private chaos – we make it happen."
         }
     ];
 
@@ -85,14 +85,14 @@ export default function FAQSection() {
                                 transition={{ duration: 0.6 }}
                                 className="mb-6 md:mb-8"
                             >
-                                <h2 className="w-fit block mx-auto md:mx-0 text-4xl md:text-5xl font-display font-bold tracking-tight text-transparent bg-clip-text bg-gradient-to-r from-blue-600 via-purple-500 to-red-600">F.A.Q</h2>
+                                <h2 className="w-fit block mx-auto md:mx-0 text-4xl md:text-5xl font-display font-bold tracking-tight text-transparent bg-clip-text bg-gradient-to-r from-blue-600 via-purple-500 to-red-600 whitespace-nowrap">The Knowledge Base</h2>
                             </motion.div>
                             <p className="text-muted-foreground mt-4 font-display text-lg">
-                                Everything you need to know about your visit.
+                                Everything you need to know about joining the chaos.
                             </p>
                         </div>
                     </div>
-                    <div className="md:w-2/3">
+                    <div className="md:w-2/3 md:ml-8 lg:ml-12">
                         <Accordion
                             type="single"
                             collapsible

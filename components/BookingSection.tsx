@@ -335,10 +335,10 @@ Looking forward to your confirmation! To clarify any details, feel free to ask. 
 
 
   return (
-    <section id="book" className="relative w-full overflow-hidden bg-zinc-950 flex flex-col lg:flex-row h-auto lg:h-[85vh]">
+    <section id="book" className="relative w-full overflow-hidden bg-zinc-950 flex flex-col lg:flex-row min-h-screen lg:min-h-[100vh] pb-4 md:pb-8 lg:pb-0">
 
       {/* Left Column: Image with Blur Edge (Desktop Only) */}
-      <div className="relative hidden lg:block flex-1 min-w-0 h-full overflow-hidden">
+      <div className="relative hidden lg:block flex-1 min-w-0 min-h-full overflow-hidden">
         <div className="absolute inset-0 bg-brand-blue/10 z-10 mix-blend-overlay" />
         <div className="absolute inset-0 bg-gradient-to-r from-transparent to-zinc-950 z-20" />
 
@@ -348,13 +348,13 @@ Looking forward to your confirmation! To clarify any details, feel free to ask. 
         <img
           src="/BG21.webp"
           alt="Gaming Atmosphere Left"
-          className="h-full w-full object-cover"
+          className="absolute inset-0 w-full h-full object-cover object-center"
         />
         <div className="absolute right-0 top-0 bottom-0 w-32 bg-gradient-to-l from-zinc-950 to-transparent z-20" />
       </div>
 
       {/* Middle Column: Form */}
-      <div className="relative w-full lg:w-[500px] xl:w-[600px] lg:flex-none lg:h-full shrink-0 flex flex-col items-center justify-center p-4 lg:p-8 bg-zinc-950">
+      <div className="relative w-full lg:w-[500px] xl:w-[600px] lg:flex-none lg:h-full shrink-0 flex flex-col items-center justify-center px-4 pt-4 pb-4 md:px-4 md:pt-8 md:pb-8 lg:p-8 bg-zinc-950">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -370,7 +370,7 @@ Looking forward to your confirmation! To clarify any details, feel free to ask. 
             className="mb-6 md:mb-8 shrink-0"
           >
             <h2 className="w-fit block mx-auto text-4xl md:text-5xl font-display font-bold tracking-tight text-transparent bg-clip-text bg-gradient-to-r from-blue-600 via-purple-500 to-red-600">
-              Secure Your Spot
+              Join The Action
             </h2>
           </motion.div>
 
@@ -574,7 +574,7 @@ Looking forward to your confirmation! To clarify any details, feel free to ask. 
                 >
                   <div className="absolute inset-0 bg-white/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                   <div className="relative flex items-center justify-center gap-3">
-                    <span className="font-display font-bold text-white tracking-widest uppercase text-sm">Confirm Booking</span>
+                    <span className="font-display font-bold text-white tracking-widest uppercase text-sm">Lock It In</span>
                     <Send size={18} className="text-white group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform duration-300" />
                   </div>
                 </button>
@@ -585,7 +585,7 @@ Looking forward to your confirmation! To clarify any details, feel free to ask. 
       </div>
 
       {/* Right Column: Image with Blur Edge (Desktop Only for Layout Balance) */}
-      <div className="relative hidden lg:block flex-1 min-w-0 h-full overflow-hidden">
+      <div className="relative hidden lg:block flex-1 min-w-0 min-h-full overflow-hidden">
         <div className="absolute inset-0 bg-brand-purple/10 z-10 mix-blend-overlay" />
         <div className="absolute inset-0 bg-gradient-to-l from-transparent to-zinc-950 z-20" />
 
@@ -595,7 +595,7 @@ Looking forward to your confirmation! To clarify any details, feel free to ask. 
         <img
           src="/BG38.webp"
           alt="Gaming Atmosphere Right"
-          className="h-full w-full object-cover"
+          className="absolute inset-0 w-full h-full object-cover object-center"
         />
         <div className="absolute left-0 top-0 bottom-0 w-32 bg-gradient-to-r from-zinc-950 to-transparent z-20" />
       </div>

@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from "next";
-import { Inter, Outfit, Poppins, Anton } from "next/font/google";
+import { League_Spartan } from "next/font/google";
 import dynamic from "next/dynamic";
 import "./globals.css";
 import { Providers } from "./providers";
@@ -10,38 +10,10 @@ import Footer from "@/components/Footer";
 
 import SmoothScrolling from "@/components/SmoothScrolling";
 
-const inter = Inter({
-  subsets: ["latin"],
-  variable: "--font-inter",
-  display: "swap",
-  preload: true,
-  fallback: ["system-ui", "arial"],
-  adjustFontFallback: true,
-});
-
-const outfit = Outfit({
-  subsets: ["latin"],
-  variable: "--font-outfit",
-  display: "swap",
-  preload: true,
-  fallback: ["system-ui", "arial"],
-  adjustFontFallback: true,
-});
-
-const poppins = Poppins({
+const leagueSpartan = League_Spartan({
   subsets: ["latin"],
   weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
-  variable: "--font-poppins",
-  display: "swap",
-  preload: true,
-  fallback: ["system-ui", "arial"],
-  adjustFontFallback: true,
-});
-
-const anton = Anton({
-  subsets: ["latin"],
-  weight: ["400"],
-  variable: "--font-anton",
+  variable: "--font-league-spartan",
   display: "swap",
   preload: true,
   fallback: ["system-ui", "arial"],
@@ -193,7 +165,7 @@ export default function RootLayout({
         <link rel="icon" href="/svg/favicon.svg" type="image/svg+xml" />
       </head>
       <body
-        className={`${inter.variable} ${outfit.variable} ${poppins.variable} ${anton.variable} font-sans selection:bg-brand-blue selection:text-white relative overflow-x-hidden`}
+        className={`${leagueSpartan.variable} font-league-spartan selection:bg-brand-blue selection:text-white relative overflow-x-hidden`}
       >
         <Providers>
           <SmoothScrolling>

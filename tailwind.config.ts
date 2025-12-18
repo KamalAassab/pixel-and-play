@@ -17,9 +17,10 @@ const config: Config = {
     },
     extend: {
       fontFamily: {
-        sans: ["var(--font-inter)", "sans-serif"],
-        display: ["var(--font-outfit)", "sans-serif"],
-        poppins: ["var(--font-poppins)", "sans-serif"],
+        "league-spartan": ["var(--font-league-spartan)", "sans-serif"],
+        sans: ["var(--font-league-spartan)", "sans-serif"],
+        display: ["var(--font-league-spartan)", "sans-serif"],
+        menu: ["var(--font-league-spartan)", "sans-serif"],
       },
       colors: {
         background: "hsl(var(--background))",
@@ -85,10 +86,11 @@ const config: Config = {
         },
         "x-slider": {
           "0%": {
-            transform: "translateX(0%)",
+            transform: "translate3d(0, 0, 0)",
           },
           "100%": {
-            transform: "translateX(calc(-50% - 1.25rem))",
+            // Gap is 2rem (32px). Shift by 50% + half gap = 50% + 1rem
+            transform: "translate3d(calc(-50% - 1rem), 0, 0)",
           },
         },
         "pulse-slow": {
@@ -107,7 +109,7 @@ const config: Config = {
         "accordion-up": "accordion-up 0.2s ease-out",
         "fade-in": "fade-in 0.5s ease-out forwards",
         "glow-pulse": "glow-pulse 3s infinite",
-        "x-slider": "x-slider 30s linear infinite",
+        "x-slider": "x-slider 60s linear infinite",
         "pulse-slow": "pulse-slow 8s ease-in-out infinite",
       },
       backgroundImage: {

@@ -11,6 +11,7 @@ import {
 } from "lucide-react"
 import Link from "next/link"
 import Image from "next/image"
+import { cn } from "@/lib/utils"
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
@@ -25,7 +26,14 @@ export default function Footer() {
 
           {/* Logo Circle */}
           {/* Logo - Big & Clean */}
-          <div className="group mb-4 relative h-auto w-48 md:w-60">
+          <Link
+            href="#"
+            onClick={(e) => {
+              e.preventDefault();
+              window.scrollTo({ top: 0, behavior: 'smooth' });
+            }}
+            className="group mb-4 relative h-auto w-48 md:w-60 block cursor-pointer"
+          >
             <Image
               src="/logo.webp"
               alt="Pixel & Play Logo"
@@ -33,33 +41,51 @@ export default function Footer() {
               height={240}
               className="object-contain group-hover:scale-105 transition-transform duration-500"
             />
-          </div>
+          </Link>
 
           {/* Navigation Links */}
-          <nav className="mb-12 w-full max-w-4xl">
-            <div className="grid grid-cols-2 md:flex md:flex-wrap md:justify-center gap-3 md:gap-4">
+          <nav className="mb-12 w-full max-w-7xl">
+            <div className="grid grid-cols-3 gap-2 md:flex md:flex-wrap md:justify-center md:gap-3">
               {[
-                { label: "About", href: "#about", icon: Info },
-                { label: "Menu", href: "#menu", icon: Coffee },
-                { label: "Games", href: "#games", icon: Gamepad2 },
-                { label: "Gallery", href: "#gallery", icon: ImageIcon },
-                { label: "Contact", href: "#location", icon: MapPin },
-                { label: "Book", href: "#book", icon: Calendar },
-              ].map((link) => (
-                <Link
-                  key={link.label}
-                  href={link.href}
-                  className="group relative flex items-center justify-center gap-2.5 px-6 py-3.5 rounded-xl bg-zinc-900/40 border border-white/5 hover:border-brand-blue/50 hover:bg-brand-blue/10 transition-all duration-300 active:scale-95 overflow-hidden"
-                >
-                  {/* Hover Glow */}
-                  <div className="absolute inset-0 bg-gradient-to-r from-brand-blue/0 via-brand-blue/10 to-brand-blue/0 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700" />
+                { label: "The Vibe", href: "#about", icon: Info, color: "blue" },
+                { label: "Menu & Drinks", href: "#menu", icon: Coffee, color: "red" },
+                { label: "The Arsenal", href: "#games", icon: Gamepad2, color: "blue" },
+                { label: "Madness", href: "#gallery", icon: ImageIcon, color: "red" },
+                { label: "Location", href: "#location", icon: MapPin, color: "blue" },
+                { label: "Join", href: "#book", icon: Calendar, color: "red" },
+              ].map((link) => {
+                const isBlue = link.color === "blue";
+                const handleClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
+                  e.preventDefault();
+                  const targetId = link.href.substring(1);
+                  const element = document.getElementById(targetId);
+                  if (element) {
+                    element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                  }
+                };
 
-                  <link.icon size={16} className="text-zinc-400 group-hover:text-brand-blue transition-colors relative z-10" />
-                  <span className="text-zinc-300 group-hover:text-white transition-colors text-sm font-bold tracking-wide uppercase relative z-10">
-                    {link.label}
-                  </span>
-                </Link>
-              ))}
+                return (
+                  <Link
+                    key={link.label}
+                    href={link.href}
+                    onClick={handleClick}
+                    className={cn(
+                      "group relative flex items-center justify-center gap-1.5 md:gap-2 px-2 md:px-4 py-2 rounded-full border backdrop-blur-sm whitespace-nowrap transition-all duration-300 hover:scale-105 w-full md:w-auto",
+                      isBlue
+                        ? "bg-brand-blue/10 border-brand-blue/30 text-zinc-300 hover:bg-brand-blue/20 hover:border-brand-blue/50 hover:text-white hover:shadow-[0_0_15px_rgba(27,79,216,0.4)]"
+                        : "bg-brand-red/10 border-brand-red/30 text-zinc-300 hover:bg-brand-red/20 hover:border-brand-red/50 hover:text-white hover:shadow-[0_0_15px_rgba(255,87,87,0.4)]"
+                    )}
+                  >
+                    <link.icon size={12} className={cn(
+                      "transition-colors relative z-10 md:w-3.5 md:h-3.5",
+                      isBlue ? "text-brand-blue/80 group-hover:text-brand-blue" : "text-brand-red/80 group-hover:text-brand-red"
+                    )} />
+                    <span className="text-[10px] md:text-sm font-semibold tracking-wide uppercase relative z-10">
+                      {link.label}
+                    </span>
+                  </Link>
+                );
+              })}
             </div>
           </nav>
 

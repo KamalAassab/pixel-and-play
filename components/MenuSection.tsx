@@ -121,7 +121,7 @@ const PageContent = ({
                 {/* Page number at bottom */}
                 <div className="mt-auto">
                     <span className={cn(
-                        "text-xs md:text-sm text-white/60 font-display font-bold bg-white/5 px-2 py-0.5 rounded border border-white/10",
+                        "text-xs md:text-sm text-white/60 font-menu font-bold bg-white/5 px-2 py-0.5 rounded border border-white/10",
                         "block"
                     )}>
                         {currentPage}/{totalPages}
@@ -143,7 +143,7 @@ const PageContent = ({
         <div className={cn("relative z-20 h-full flex flex-col overflow-hidden min-h-0", contentPadding, "text-left items-start")}>
             {/* Header */}
             <div className="flex items-center justify-end w-full mb-1 flex-shrink-0">
-                <h3 className="font-display text-lg md:text-xl font-semibold text-white tracking-tight flex items-center gap-2">
+                <h3 className="font-menu text-lg md:text-xl font-semibold text-white tracking-tight flex items-center gap-2">
                     <Icon className="text-white/90" size={18} />
                     <span>{data.title}</span>
                 </h3>
@@ -165,7 +165,7 @@ const PageContent = ({
                                 if (!item.price) {
                                     return (
                                         <li key={i} className="flex justify-center items-center py-2">
-                                            <span className="text-xs md:text-sm font-display font-bold text-white text-center">
+                                            <span className="text-xs md:text-sm font-menu font-bold text-white text-center">
                                                 {mainName}
                                             </span>
                                         </li>
@@ -175,11 +175,11 @@ const PageContent = ({
                                 return (
                                     <li key={i} className="flex items-center group gap-2">
                                         <div className="flex flex-col flex-shrink-0">
-                                            <span className="text-xs md:text-sm font-display font-normal text-white">
+                                            <span className="text-xs md:text-sm font-menu font-normal text-white">
                                                 {mainName}
                                             </span>
                                             {parenthetical && (
-                                                <span className="text-xs md:text-sm font-display font-normal text-white/80">
+                                                <span className="text-xs md:text-sm font-menu font-normal text-white/80">
                                                     ({parenthetical})
                                                 </span>
                                             )}
@@ -197,7 +197,7 @@ const PageContent = ({
                                                         width: '100%'
                                                     }}></span>
                                                 </div>
-                                                <span className="text-xs md:text-sm font-display font-semibold text-white/95 whitespace-nowrap flex-shrink-0">
+                                                <span className="text-xs md:text-sm font-menu font-semibold text-white/95 whitespace-nowrap flex-shrink-0">
                                                     {item.price}
                                                 </span>
                                             </>
@@ -214,7 +214,7 @@ const PageContent = ({
                     <div className="relative mt-6">
                         {/* Title for second category */}
                         <div className="flex items-center justify-end w-full mb-1 flex-shrink-0">
-                            <h3 className="font-display text-lg md:text-xl font-semibold text-white tracking-tight flex items-center gap-2">
+                            <h3 className="font-menu text-lg md:text-xl font-semibold text-white tracking-tight flex items-center gap-2">
                                 {secondCategory.icon && (() => {
                                     const CategoryIcon = getIcon(secondCategory.icon);
                                     return <CategoryIcon className="text-white/90" size={18} />;
@@ -232,7 +232,7 @@ const PageContent = ({
                                 if (!item.price) {
                                     return (
                                         <li key={i} className="flex justify-center items-center py-2">
-                                            <span className="text-xs md:text-sm font-display font-bold text-white text-center">
+                                            <span className="text-xs md:text-sm font-menu font-bold text-white text-center">
                                                 {mainName}
                                             </span>
                                         </li>
@@ -242,11 +242,11 @@ const PageContent = ({
                                 return (
                                     <li key={i} className="flex items-center group gap-2">
                                         <div className="flex flex-col flex-shrink-0">
-                                            <span className="text-xs md:text-sm font-display font-normal text-white">
+                                            <span className="text-xs md:text-sm font-menu font-normal text-white">
                                                 {mainName}
                                             </span>
                                             {parenthetical && (
-                                                <span className="text-xs md:text-sm font-display font-normal text-white/80">
+                                                <span className="text-xs md:text-sm font-menu font-normal text-white/80">
                                                     ({parenthetical})
                                                 </span>
                                             )}
@@ -264,7 +264,7 @@ const PageContent = ({
                                                         width: '100%'
                                                     }}></span>
                                                 </div>
-                                                <span className="text-xs md:text-sm font-display font-semibold text-white/95 whitespace-nowrap flex-shrink-0">
+                                                <span className="text-xs md:text-sm font-menu font-semibold text-white/95 whitespace-nowrap flex-shrink-0">
                                                     {item.price}
                                                 </span>
                                             </>
@@ -284,7 +284,7 @@ const PageContent = ({
                                 {category.items
                                     .filter(item => !item.price)
                                     .map((item, i) => (
-                                        <p key={i} className="text-xs md:text-sm font-display font-normal text-white/70 italic">
+                                        <p key={i} className="text-xs md:text-sm font-menu font-normal text-white/70 italic">
                                             {item.name}
                                         </p>
                                     ))}
@@ -298,7 +298,7 @@ const PageContent = ({
             {/* Page number at bottom */}
             <div className="mt-auto pt-2 flex-shrink-0 w-full flex">
                 <span className={cn(
-                    "text-xs md:text-sm text-white/60 font-display font-bold bg-white/5 px-2 py-0.5 rounded border border-white/10",
+                    "text-xs md:text-sm text-white/60 font-menu font-bold bg-white/5 px-2 py-0.5 rounded border border-white/10",
                     isMobile ? "mx-auto" : (side === "left" ? "ml-auto" : ""),
                     "block"
                 )}>
@@ -461,7 +461,7 @@ export default function MenuSection() {
                                         </div>
 
                                         {/* Welcome Text */}
-                                        <div className="font-display text-white font-bold text-[11px] md:text-[13px] leading-relaxed max-w-md space-y-4 selection:bg-black/20">
+                                        <div className="font-menu text-white font-bold text-[11px] md:text-[13px] leading-relaxed max-w-md space-y-4 selection:bg-black/20">
                                             <p className="drop-shadow-md">Welcome to Pixel & Play!</p>
                                             <p className="drop-shadow-md">
                                                 With over 50 board games and 10 video game setups,<br />
@@ -509,7 +509,7 @@ export default function MenuSection() {
                                             </div>
 
                                             {/* Review Text */}
-                                            <div className="font-display text-white font-bold leading-relaxed space-y-4 mb-6">
+                                            <div className="font-menu text-white font-bold leading-relaxed space-y-4 mb-6">
                                                 <h3 className="text-2xl md:text-3xl drop-shadow-md flex items-center justify-center gap-3">
                                                     Had fun ? <span className="text-yellow-400">:)</span>
                                                 </h3>
@@ -556,7 +556,7 @@ export default function MenuSection() {
                                         <div className="w-56 h-56 -mt-12 mb-0 relative drop-shadow-xl animate-float">
                                             <Image src="/logo.webp" fill className="object-contain" alt="Pixel & Play" priority />
                                         </div>
-                                        <div className="font-display text-white font-bold leading-relaxed space-y-4 mb-6">
+                                        <div className="font-menu text-white font-bold leading-relaxed space-y-4 mb-6">
                                             <h3 className="text-2xl md:text-3xl drop-shadow-md">See you soon!</h3>
                                         </div>
                                     </div>
@@ -648,7 +648,7 @@ export default function MenuSection() {
                         </div>
 
                         {/* Welcome Text */}
-                        <div className="font-display text-white font-bold text-[10px] leading-relaxed max-w-xs space-y-3 selection:bg-black/20">
+                        <div className="font-menu text-white font-bold text-[10px] leading-relaxed max-w-xs space-y-3 selection:bg-black/20">
                             <p className="drop-shadow-md">Welcome to Pixel & Play!</p>
                             <p className="drop-shadow-md">
                                 With over 50 board games and 10 video game setups,<br />
@@ -680,7 +680,7 @@ export default function MenuSection() {
                         </div>
 
                         {/* Review Text */}
-                        <div className="font-display text-white font-bold leading-relaxed space-y-3 mb-6">
+                        <div className="font-menu text-white font-bold leading-relaxed space-y-3 mb-6">
                             <h3 className="text-xl md:text-2xl drop-shadow-md flex items-center justify-center gap-2">
                                 Had fun ? <span className="text-yellow-400">:)</span>
                             </h3>
@@ -797,7 +797,7 @@ export default function MenuSection() {
             {isMobile && (
                 <div className="absolute bottom-6 left-0 right-0 flex justify-center items-center gap-2 pointer-events-none animate-pulse z-20 opacity-60">
                     <Icons.MoveHorizontal className="text-white" size={20} />
-                    <span className="text-white text-xs font-display uppercase tracking-widest">Swipe to navigate</span>
+                    <span className="text-white text-xs font-menu uppercase tracking-widest">Swipe to navigate</span>
                 </div>
             )}
 

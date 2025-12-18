@@ -24,8 +24,7 @@
     --input: 240 6% 20%;
     --ring: 240 5% 65%;
     --radius: 0.75rem;
-    --font-inter: 'Inter', sans-serif;
-    --font-outfit: 'Outfit', sans-serif;
+    --font-league-spartan: 'League Spartan', sans-serif;
   }
 
   body {
@@ -35,23 +34,27 @@
 }
 
 @layer components {
+
   /* Premium Glass Effect */
   .glass-panel {
     @apply bg-zinc-900/60 backdrop-blur-xl border border-white/5 shadow-2xl;
   }
-  
+
   /* Optimized animations */
   @keyframes pulse-slow {
-    0%, 100% {
+
+    0%,
+    100% {
       transform: scale(1);
       opacity: 0.3;
     }
+
     50% {
       transform: scale(1.2);
       opacity: 0.4;
     }
   }
-  
+
   .glass-premium {
     background: linear-gradient(135deg, rgba(255, 255, 255, 0.03) 0%, rgba(255, 255, 255, 0.01) 100%);
     backdrop-filter: blur(20px);
@@ -71,12 +74,15 @@
 
   /* Hide scrollbar for all elements */
   * {
-    -ms-overflow-style: none;  /* IE and Edge */
-    scrollbar-width: none;  /* Firefox */
+    -ms-overflow-style: none;
+    /* IE and Edge */
+    scrollbar-width: none;
+    /* Firefox */
   }
 
   *::-webkit-scrollbar {
-    display: none;  /* Chrome, Safari and Opera */
+    display: none;
+    /* Chrome, Safari and Opera */
   }
 
   /* Book 3D Effects */
@@ -86,31 +92,28 @@
   }
 
   .book-cover {
-    box-shadow: 
+    box-shadow:
       0 30px 80px rgba(0, 0, 0, 0.6),
       0 10px 30px rgba(0, 0, 0, 0.4),
       inset 0 0 50px rgba(0, 0, 0, 0.1),
       0 0 0 1px rgba(255, 255, 255, 0.1);
-    background: linear-gradient(
-      135deg,
-      rgba(0, 0, 0, 0.1) 0%,
-      rgba(255, 255, 255, 0.05) 50%,
-      rgba(0, 0, 0, 0.1) 100%
-    );
+    background: linear-gradient(135deg,
+        rgba(0, 0, 0, 0.1) 0%,
+        rgba(255, 255, 255, 0.05) 50%,
+        rgba(0, 0, 0, 0.1) 100%);
   }
 
   .book-page-left {
     position: relative;
-    box-shadow: 
+    box-shadow:
       inset -2px 0 10px rgba(0, 0, 0, 0.2),
       2px 0 5px rgba(0, 0, 0, 0.1);
   }
 
   .book-page-right {
     position: relative;
-    box-shadow: 
+    box-shadow:
       inset 2px 0 10px rgba(0, 0, 0, 0.2),
       -2px 0 5px rgba(0, 0, 0, 0.1);
   }
 }
-

@@ -1,6 +1,6 @@
 
 import { motion } from "framer-motion";
-import { ArrowRight, MapPin } from "lucide-react";
+import { ArrowRight, MapPin, Gamepad2, Dice5, Gamepad } from "lucide-react";
 import * as Icons from "lucide-react";
 
 
@@ -22,7 +22,7 @@ export default function ContactSection() {
           className="mb-6 md:mb-8"
         >
           <h2 className="w-fit block mx-auto text-4xl md:text-5xl font-display font-bold tracking-tight text-transparent bg-clip-text bg-gradient-to-r from-blue-600 via-purple-500 to-red-600">
-            Contact Us!
+            Find The Energy
           </h2>
         </motion.div>
 
@@ -36,66 +36,142 @@ export default function ContactSection() {
             transition={{ duration: 0.6 }}
             className="lg:row-start-1 lg:col-start-1 h-full"
           >
-            <div className="grid grid-cols-1 gap-2 sm:gap-3 md:gap-4 h-full">
+            <div className="grid grid-cols-1 gap-3 md:gap-4 h-full">
 
               {/* Address Card */}
-              <div className="group relative overflow-hidden rounded-xl bg-brand-blue/10 border border-brand-blue/20 p-6 shadow-lg flex items-center gap-5">
-                <div className="inline-flex items-center justify-center w-12 h-12 shrink-0 rounded-full bg-brand-blue/20 border border-brand-blue/30">
-                  <MapPin size={22} className="text-brand-blue" />
+              <div className="group relative overflow-hidden rounded-xl bg-gradient-to-br from-brand-blue/20 via-brand-blue/10 to-zinc-900/50 border border-brand-blue/30 p-5 md:p-6 shadow-[0_0_20px_rgba(27,79,216,0.2)] hover:shadow-[0_0_30px_rgba(27,79,216,0.4)] transition-all duration-300 hover:border-brand-blue/50">
+                {/* Floating gaming icons */}
+                <motion.div
+                  className="absolute top-4 right-6 opacity-25 group-hover:opacity-35 transition-opacity"
+                  animate={{ y: [0, -8, 0], rotate: [0, 5, 0] }}
+                  transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+                >
+                  <Gamepad2 size={32} className="text-brand-blue" />
+                </motion.div>
+                <motion.div
+                  className="absolute bottom-6 right-12 opacity-25 group-hover:opacity-35 transition-opacity"
+                  animate={{ y: [0, 6, 0], rotate: [0, -5, 0] }}
+                  transition={{ duration: 5, repeat: Infinity, ease: "easeInOut", delay: 0.5 }}
+                >
+                  <Dice5 size={24} className="text-brand-blue" />
+                </motion.div>
+                
+                <div className="relative z-10 flex items-start gap-4">
+                  <MapPin size={24} className="text-brand-blue mt-0.5 drop-shadow-[0_0_8px_rgba(27,79,216,0.6)] group-hover:scale-110 transition-transform" />
+                  <div className="flex-1">
+                    <h4 className="font-display font-bold text-lg md:text-xl text-white tracking-tight mb-2">The Arena</h4>
+                    <p className="text-zinc-300 font-display text-sm md:text-base leading-relaxed">
+                      159 Rue Ibnou Faris, Casablanca 20330
+                    </p>
+                  </div>
                 </div>
-                <div className="relative z-10">
-                  <h4 className="font-display font-bold text-base text-white mb-1">Visit Us</h4>
-                  <p className="text-zinc-200 font-display text-sm leading-relaxed">
-                    159 Rue Ibnou Faris, Casablanca 20330
-                  </p>
-                </div>
+                {/* Gaming glow effect */}
+                <div className="absolute top-0 right-0 w-32 h-32 bg-brand-blue/10 rounded-full blur-3xl opacity-50 group-hover:opacity-70 transition-opacity"></div>
               </div>
 
               {/* Opening Hours Card */}
-              <div className="group relative overflow-hidden rounded-xl bg-brand-red/10 border border-brand-red/20 p-6 shadow-lg flex items-center gap-5">
-                <div className="inline-flex items-center justify-center w-12 h-12 shrink-0 rounded-full bg-brand-red/20 border border-brand-red/30">
-                  <Icons.Clock size={22} className="text-brand-red" />
+              <div className="group relative overflow-hidden rounded-xl bg-gradient-to-br from-brand-red/20 via-brand-red/10 to-zinc-900/50 border border-brand-red/30 p-5 md:p-6 shadow-[0_0_20px_rgba(255,87,87,0.2)] hover:shadow-[0_0_30px_rgba(255,87,87,0.4)] transition-all duration-300 hover:border-brand-red/50">
+                {/* Floating gaming icons */}
+                <motion.div
+                  className="absolute top-6 right-8 opacity-25 group-hover:opacity-35 transition-opacity"
+                  animate={{ y: [0, -6, 0], rotate: [0, -8, 0] }}
+                  transition={{ duration: 4.5, repeat: Infinity, ease: "easeInOut" }}
+                >
+                  <Dice5 size={28} className="text-brand-red" />
+                </motion.div>
+                <motion.div
+                  className="absolute bottom-4 right-4 opacity-25 group-hover:opacity-35 transition-opacity"
+                  animate={{ y: [0, 8, 0], rotate: [0, 8, 0] }}
+                  transition={{ duration: 5.5, repeat: Infinity, ease: "easeInOut", delay: 0.8 }}
+                >
+                  <Gamepad size={20} className="text-brand-red" />
+                </motion.div>
+                
+                <div className="relative z-10 flex items-start gap-4">
+                  <Icons.Clock size={24} className="text-brand-red mt-0.5 drop-shadow-[0_0_8px_rgba(255,87,87,0.6)] group-hover:scale-110 transition-transform" />
+                  <div className="flex-1">
+                    <h4 className="font-display font-bold text-lg md:text-xl text-white tracking-tight mb-2">Opening Hours</h4>
+                    <p className="text-zinc-300 font-display text-sm md:text-base leading-relaxed">
+                      Daily from <span className="text-white font-semibold">2:00 PM</span> to <span className="text-white font-semibold">12:00 AM</span>
+                    </p>
+                  </div>
                 </div>
-                <div className="relative z-10">
-                  <h4 className="font-display font-bold text-base text-white mb-1">Opening Hours</h4>
-                  <p className="text-zinc-200 font-display text-sm leading-relaxed">
-                    Daily from <span className="text-white font-medium">2:00 PM</span> to <span className="text-white font-medium">12:00 AM</span>
-                  </p>
-                </div>
+                {/* Gaming glow effect */}
+                <div className="absolute top-0 right-0 w-32 h-32 bg-brand-red/10 rounded-full blur-3xl opacity-50 group-hover:opacity-70 transition-opacity"></div>
               </div>
 
               {/* Phone Card */}
               <a
                 href="tel:+212612919613"
-                className="group relative overflow-hidden rounded-xl bg-brand-blue/10 border border-brand-blue/20 p-6 shadow-lg flex items-center gap-5 transition-transform active:scale-95"
+                className="group relative overflow-hidden rounded-xl bg-gradient-to-br from-brand-blue/20 via-brand-blue/10 to-zinc-900/50 border border-brand-blue/30 p-5 md:p-6 shadow-[0_0_20px_rgba(27,79,216,0.2)] hover:shadow-[0_0_30px_rgba(27,79,216,0.4)] transition-all duration-300 hover:border-brand-blue/50 hover:scale-[1.02] active:scale-[0.98]"
               >
-                <div className="inline-flex items-center justify-center w-12 h-12 shrink-0 rounded-full bg-brand-blue/20 border border-brand-blue/30">
-                  <Icons.Phone size={22} className="text-brand-blue" />
+                {/* Floating gaming icons */}
+                <motion.div
+                  className="absolute top-5 right-10 opacity-25 group-hover:opacity-35 transition-opacity"
+                  animate={{ y: [0, -10, 0], rotate: [0, 10, 0] }}
+                  transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
+                >
+                  <Gamepad2 size={30} className="text-brand-blue" />
+                </motion.div>
+                <motion.div
+                  className="absolute bottom-8 right-6 opacity-25 group-hover:opacity-35 transition-opacity"
+                  animate={{ y: [0, 7, 0], rotate: [0, -7, 0] }}
+                  transition={{ duration: 4, repeat: Infinity, ease: "easeInOut", delay: 1 }}
+                >
+                  <Dice5 size={22} className="text-brand-blue" />
+                </motion.div>
+                
+                <div className="relative z-10 flex items-start gap-4">
+                  <Icons.Phone size={24} className="text-brand-blue mt-0.5 drop-shadow-[0_0_8px_rgba(27,79,216,0.6)] group-hover:scale-110 transition-transform" />
+                  <div className="flex-1 flex items-center justify-between">
+                    <div>
+                      <h4 className="font-display font-bold text-lg md:text-xl text-white tracking-tight mb-2">Direct Line</h4>
+                      <p className="text-zinc-300 font-display text-sm md:text-base tracking-wide">
+                        +212 612-919613
+                      </p>
+                    </div>
+                    <ArrowRight size={20} className="text-brand-blue opacity-60 group-hover:opacity-100 group-hover:translate-x-1 transition-all" />
+                  </div>
                 </div>
-                <div className="relative z-10 flex-1">
-                  <h4 className="font-display font-bold text-base text-white mb-1">Call Us</h4>
-                  <p className="text-zinc-200 font-display text-sm tracking-wide">
-                    +212 612-919613
-                  </p>
-                </div>
-                <ArrowRight size={18} className="text-brand-blue" />
+                {/* Gaming glow effect */}
+                <div className="absolute top-0 right-0 w-32 h-32 bg-brand-blue/10 rounded-full blur-3xl opacity-50 group-hover:opacity-70 transition-opacity"></div>
               </a>
 
               {/* Email Card */}
               <a
                 href="mailto:contact@pixelandplay.com"
-                className="group relative overflow-hidden rounded-xl bg-brand-red/10 border border-brand-red/20 p-6 shadow-lg flex items-center gap-5 transition-transform active:scale-95"
+                className="group relative overflow-hidden rounded-xl bg-gradient-to-br from-brand-red/20 via-brand-red/10 to-zinc-900/50 border border-brand-red/30 p-5 md:p-6 shadow-[0_0_20px_rgba(255,87,87,0.2)] hover:shadow-[0_0_30px_rgba(255,87,87,0.4)] transition-all duration-300 hover:border-brand-red/50 hover:scale-[1.02] active:scale-[0.98]"
               >
-                <div className="inline-flex items-center justify-center w-12 h-12 shrink-0 rounded-full bg-brand-red/20 border border-brand-red/30">
-                  <Icons.Mail size={22} className="text-brand-red" />
+                {/* Floating gaming icons */}
+                <motion.div
+                  className="absolute top-8 right-8 opacity-25 group-hover:opacity-35 transition-opacity"
+                  animate={{ y: [0, -7, 0], rotate: [0, -10, 0] }}
+                  transition={{ duration: 4.5, repeat: Infinity, ease: "easeInOut" }}
+                >
+                  <Gamepad size={26} className="text-brand-red" />
+                </motion.div>
+                <motion.div
+                  className="absolute bottom-5 right-10 opacity-25 group-hover:opacity-35 transition-opacity"
+                  animate={{ y: [0, 9, 0], rotate: [0, 12, 0] }}
+                  transition={{ duration: 5.5, repeat: Infinity, ease: "easeInOut", delay: 0.6 }}
+                >
+                  <Dice5 size={24} className="text-brand-red" />
+                </motion.div>
+                
+                <div className="relative z-10 flex items-start gap-4">
+                  <Icons.Mail size={24} className="text-brand-red mt-0.5 drop-shadow-[0_0_8px_rgba(255,87,87,0.6)] group-hover:scale-110 transition-transform" />
+                  <div className="flex-1 flex items-center justify-between">
+                    <div>
+                      <h4 className="font-display font-bold text-lg md:text-xl text-white tracking-tight mb-2">Drop A Message</h4>
+                      <p className="text-zinc-300 font-display text-sm md:text-base">
+                        contact@pixelandplay.com
+                      </p>
+                    </div>
+                    <ArrowRight size={20} className="text-brand-red opacity-60 group-hover:opacity-100 group-hover:translate-x-1 transition-all" />
+                  </div>
                 </div>
-                <div className="relative z-10 flex-1">
-                  <h4 className="font-display font-bold text-base text-white mb-1">Email Us</h4>
-                  <p className="text-zinc-200 font-display text-sm">
-                    contact@pixelandplay.com
-                  </p>
-                </div>
-                <ArrowRight size={18} className="text-brand-red" />
+                {/* Gaming glow effect */}
+                <div className="absolute top-0 right-0 w-32 h-32 bg-brand-red/10 rounded-full blur-3xl opacity-50 group-hover:opacity-70 transition-opacity"></div>
               </a>
 
             </div>

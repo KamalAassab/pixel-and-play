@@ -108,7 +108,7 @@ export default function GallerySection() {
                     className="mb-6 md:mb-8 relative z-10"
                 >
                     <h2 className="w-full block mx-auto text-3xl sm:text-4xl md:text-5xl font-display font-bold tracking-tight text-transparent bg-clip-text bg-gradient-to-r from-blue-600 via-purple-500 to-red-600 text-center px-4">
-                        Moments Together
+                        Shared Madness
                     </h2>
                 </motion.div>
 

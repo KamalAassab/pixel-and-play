@@ -3,7 +3,7 @@
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { Menu, X, Sparkles } from "lucide-react";
+import { Menu, X, Sparkles, Calendar } from "lucide-react";
 import { cn } from "@/lib/utils";
 import StaggeredMenu from "@/components/StaggeredMenu";
 
@@ -35,99 +35,85 @@ export default function Header() {
   }, []);
 
   const navLinks = [
-    { href: "#about", label: "About" },
-    { href: "#menu", label: "Menu" },
-    { href: "#games", label: "Games" },
-    { href: "#gallery", label: "Gallery" },
-    { href: "#location", label: "Contact" },
-    { href: "#book", label: "Book" },
+    { href: "#about", label: "The Vibe" },
+    { href: "#menu", label: "Menu & Drinks" },
+    { href: "#games", label: "The Arsenal" },
+    { href: "#gallery", label: "Madness" },
+    { href: "#location", label: "Location" },
+    { href: "#book", label: "Join" },
   ];
 
   return (
-    <header
-      className={cn(
-        "fixed top-0 w-full z-50 transition-all duration-500 ease-in-out",
-        scrolled
-          ? "glass-premium border-b border-white/10 backdrop-blur-xl bg-zinc-950/80 shadow-lg shadow-black/20"
-          : "bg-transparent border-b border-transparent"
-      )}
-    >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div
-          className={cn(
-            "flex items-center justify-between transition-[height] duration-300 ease-in-out",
-            scrolled ? "h-16" : "h-28"
-          )}
+    <header className="fixed top-4 left-1/2 -translate-x-1/2 w-[95%] max-w-5xl z-50 transition-all duration-500 ease-in-out">
+      <div
+        className={cn(
+          "relative flex items-center justify-between px-4 py-0 rounded-2xl border border-white/10 shadow-2xl backdrop-blur-xl transition-all duration-300",
+          scrolled ? "bg-zinc-950/90 py-0" : "bg-zinc-950/70 py-0.5"
+        )}
+      >
+        {/* Logo */}
+        <Link
+          href="/"
+          className="flex items-center group relative z-50 shrink-0 !m-0 !p-0"
+          onClick={() => setMobileMenuOpen(false)}
         >
-          {/* Logo */}
+          <div className="relative w-24 h-16 md:w-32 md:h-20 flex items-center justify-center transition-transform duration-300 group-hover:scale-110 !m-0 !p-0">
+            <Image
+              src="/logo.webp"
+              alt="PIXEL & PLAY Logo"
+              width={128}
+              height={80}
+              className="object-contain"
+              priority
+            />
+          </div>
+        </Link>
+
+        {/* Desktop Navigation */}
+        <nav className="hidden lg:flex items-center gap-2 absolute left-1/2 -translate-x-1/2 !m-0 !p-0">
+          {navLinks.slice(0, -1).map((link) => {
+            const isActive = activeSection === link.href;
+            return (
+              <Link
+                key={link.href}
+                href={link.href}
+                className={cn(
+                  "relative px-5 py-1.5 text-xs md:text-sm font-medium transition-all duration-500 rounded-full border backdrop-blur-sm whitespace-nowrap flex items-center",
+                  isActive
+                    ? "bg-brand-blue text-white border-brand-blue shadow-[0_0_20px_-5px_rgba(27,79,216,0.3)] scale-105"
+                    : "bg-brand-red/80 text-white border-brand-red/50 hover:bg-brand-red hover:border-brand-red hover:scale-105"
+                )}
+                style={{ height: 'fit-content', minHeight: 'auto' }}
+              >
+                {link.label}
+              </Link>
+            );
+          })}
+        </nav>
+
+        {/* Right Side Actions */}
+        <div className="flex items-center gap-3 shrink-0">
+
+          {/* Secure Your Spot Button - Desktop */}
           <Link
-            href="/"
-            className="flex items-center group relative z-50 h-full py-0 my-0"
-            onClick={() => setMobileMenuOpen(false)}
+            href="#book"
+            className="hidden lg:flex items-center gap-2 px-4 py-2 rounded-full bg-gradient-to-r from-brand-blue via-brand-blue/90 to-brand-blue font-semibold text-xs md:text-sm text-white transition-all duration-300 hover:scale-105 hover:shadow-[0_0_20px_rgba(27,79,216,0.5)] border border-brand-blue/30 backdrop-blur-sm whitespace-nowrap"
           >
-            <div
-              className={cn(
-                "relative h-full flex items-center transition-all duration-300 ease-in-out hover:scale-105 active:scale-95",
-                scrolled ? "w-24 md:w-28" : "w-32 md:w-40"
-              )}
-            >
-              <Image
-                src="/logo.webp"
-                alt="PIXEL & PLAY Logo"
-                fill
-                className="object-contain"
-                sizes="(max-width: 768px) 128px, 160px"
-                priority
-              />
-            </div>
+            <Calendar size={14} className="shrink-0" />
+            <span>Secure Your Spot</span>
           </Link>
 
-          {/* Desktop Navigation */}
-          <nav className="hidden lg:flex items-center gap-1 bg-zinc-900/60 backdrop-blur-xl px-2 py-2 rounded-full border border-white/10 shadow-lg">
-            {navLinks.map((link) => {
-              const isActive = activeSection === link.href;
-              return (
-                <Link
-                  key={link.href}
-                  href={link.href}
-                  className={cn(
-                    "relative px-4 py-2 text-sm font-medium transition-all duration-300 rounded-full group hover:scale-105",
-                    isActive
-                      ? "text-white"
-                      : "text-zinc-400 hover:text-white"
-                  )}
-                >
-                  <span className="relative z-10">{link.label}</span>
-                  {isActive && (
-                    <div
-                      className="absolute inset-0 bg-brand-blue rounded-full shadow-lg shadow-brand-blue/25 animate-in fade-in duration-300"
-                    />
-                  )}
-                  <div
-                    className="absolute inset-0 bg-brand-red rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300"
-                  />
-                </Link>
-              );
-            })}
-          </nav>
-
-          {/* Right Side Actions */}
-          <div className="flex items-center gap-3">
-            {/* CTA Button */}
-
-
-            {/* Mobile Menu (Replaced with StaggeredMenu) */}
-            <div className="lg:hidden flex items-center">
-              <StaggeredMenu
-                items={navLinks.map(link => ({ label: link.label, link: link.href, ariaLabel: link.label }))}
-                displaySocials={false}
-                menuButtonColor="#fff"
-                openMenuButtonColor="#fff"
-                accentColor="#3B82F6"
-                changeMenuColorOnOpen={true}
-                closeOnClickAway={true}
-              />
-            </div>
+          {/* Mobile Menu */}
+          <div className="lg:hidden flex items-center">
+            <StaggeredMenu
+              items={navLinks.map(link => ({ label: link.label, link: link.href, ariaLabel: link.label }))}
+              displaySocials={false}
+              menuButtonColor="#fff"
+              openMenuButtonColor="#fff"
+              accentColor="#3B82F6"
+              changeMenuColorOnOpen={true}
+              closeOnClickAway={true}
+            />
           </div>
         </div>
       </div>
