@@ -62,7 +62,7 @@ const TestimonialCard = ({ testimonial, className }: { testimonial: Testimonial,
             {/* Gradient Glow on Hover - Adjusted for Red BG */}
             <div className="absolute -inset-0.5 bg-gradient-to-br from-white/20 to-white/5 rounded-2xl blur opacity-0 group-hover:opacity-30 transition-opacity duration-500 -z-10" />
 
-            <div className="relative p-5 md:p-6 flex flex-col h-full">
+            <div className="relative p-4 md:p-6 flex flex-col h-full">
                 {/* Quote Icon */}
                 <div className="mb-2 opacity-50">
                     <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" className="text-white">
@@ -70,20 +70,20 @@ const TestimonialCard = ({ testimonial, className }: { testimonial: Testimonial,
                     </svg>
                 </div>
 
-                <p className="text-white text-base md:text-lg leading-snug font-normal mb-4 flex-grow tracking-wide">
+                <p className="text-white text-sm md:text-lg leading-snug font-normal mb-3 md:mb-4 flex-grow tracking-wide">
                     {testimonial.description}
                 </p>
 
                 <div className="pt-4 border-t border-white/5 flex items-center justify-between mt-auto">
                     <div className="flex items-center gap-3">
                         {/* Avatar Removed */}
-                        <h5 className="text-lg md:text-xl font-bold text-white tracking-wide">
+                        <h5 className="text-base md:text-xl font-bold text-white tracking-wide">
                             {testimonial.name}
                         </h5>
                     </div>
                     <div className="flex gap-1">
                         {[...Array(5)].map((_, i) => (
-                            <Star key={i} size={20} className="fill-white text-white" />
+                            <Star key={i} size={16} className="md:w-5 md:h-5 fill-white text-white" />
                         ))}
                     </div>
                 </div>
@@ -174,21 +174,23 @@ const FUITestimonialWithSlide = ({ testimonials = defaultTestimonials, title, su
                 </div>
 
                 {/* Mobile/Tablet Carousel View (Hidden on desktop) */}
-                <div
-                    ref={scrollContainerRef}
-                    onMouseEnter={() => setIsPaused(true)}
-                    onMouseLeave={() => setIsPaused(false)}
-                    onTouchStart={() => setIsPaused(true)}
-                    onTouchEnd={() => setIsPaused(false)}
-                    className="lg:hidden flex overflow-x-auto snap-x snap-mandatory gap-6 py-4 pb-12 -mx-4 px-4 md:mx-0 md:px-0 [&::-webkit-scrollbar]:hidden [-ms-overflow-style:'none'] [scrollbar-width:'none']"
-                >
-                    {testimonials.map((testimonial, indx) => (
-                        <TestimonialCard
-                            key={`carousel-${indx}`}
-                            testimonial={testimonial}
-                            className="snap-center shrink-0 w-[85vw] md:w-[450px]"
-                        />
-                    ))}
+                <div className="lg:hidden w-full">
+                    <div
+                        ref={scrollContainerRef}
+                        onMouseEnter={() => setIsPaused(true)}
+                        onMouseLeave={() => setIsPaused(false)}
+                        onTouchStart={() => setIsPaused(true)}
+                        onTouchEnd={() => setIsPaused(false)}
+                        className="flex overflow-x-auto snap-x snap-mandatory gap-4 py-4 pb-12 pl-[calc((100vw-75vw)/2)] pr-[calc((100vw-75vw)/2)] sm:pl-[calc((100vw-80vw)/2)] sm:pr-[calc((100vw-80vw)/2)] md:pl-6 md:pr-6 [&::-webkit-scrollbar]:hidden [-ms-overflow-style:'none'] [scrollbar-width:'none']"
+                    >
+                        {testimonials.map((testimonial, indx) => (
+                            <TestimonialCard
+                                key={`carousel-${indx}`}
+                                testimonial={testimonial}
+                                className="snap-center shrink-0 w-[75vw] sm:w-[80vw] md:w-[450px]"
+                            />
+                        ))}
+                    </div>
                 </div>
             </div>
         </div>
