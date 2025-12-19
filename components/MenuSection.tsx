@@ -505,7 +505,7 @@ export default function MenuSection() {
                                         <div className="relative z-10 flex flex-col items-center h-full justify-center">
                                             {/* Logo */}
                                             <div className="w-56 h-56 -mt-12 mb-0 relative drop-shadow-xl animate-float">
-                                                <Image src="/logo.webp" fill className="object-contain" alt="Pixel & Play" priority sizes="(max-width: 768px) 160px, 224px" sizes="(max-width: 768px) 160px, 224px" />
+                                                <Image src="/logo.webp" fill className="object-contain" alt="Pixel & Play" priority sizes="(max-width: 768px) 160px, 224px" />
                                             </div>
 
                                             {/* Review Text */}
