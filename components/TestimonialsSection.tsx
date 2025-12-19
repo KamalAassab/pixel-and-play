@@ -43,14 +43,10 @@ const testimonials = [
 export default function TestimonialsSection() {
 
     return (
-        <section id="testimonials" className="relative min-h-screen flex flex-col justify-center py-12 px-6 overflow-hidden bg-zinc-950">
-            {/* Fixed Pattern Background - Works on all devices including mobile */}
-            <div className="fixed inset-0 z-0 pointer-events-none">
-                <div className="absolute inset-0 bg-[url('/BG-pattern.png')] bg-cover bg-center opacity-20" />
-            </div>
-            
-            {/* Gradient overlays and borders - positioned relative to section */}
-            <div className="absolute inset-0 z-0">
+        <section id="testimonials" className="relative min-h-screen flex flex-col justify-center py-12 px-6 overflow-hidden">
+            {/* Background with Gradient Overlay */}
+            <div className="absolute inset-0 bg-zinc-950">
+                <div className="absolute inset-0 bg-[url('/BG-pattern-optimized.webp')] bg-fixed bg-[length:100%_auto] bg-repeat-y md:bg-cover md:bg-no-repeat bg-center opacity-20" />
                 <div className="absolute top-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-white/10 to-transparent" />
                 <div className="absolute bottom-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-white/10 to-transparent" />
                 <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-brand-blue/10 via-zinc-950/50 to-zinc-950" />

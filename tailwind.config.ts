@@ -103,6 +103,10 @@ const config: Config = {
             opacity: "0.4",
           },
         },
+        "blur-in": {
+          "0%": { opacity: "0", transform: "translateY(10px)" },
+          "100%": { opacity: "1", transform: "translateY(0)" },
+        },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
@@ -111,6 +115,7 @@ const config: Config = {
         "glow-pulse": "glow-pulse 3s infinite",
         "x-slider": "x-slider 60s linear infinite",
         "pulse-slow": "pulse-slow 8s ease-in-out infinite",
+        "blur-in": "blur-in 1s ease-out forwards",
       },
       backgroundImage: {
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",

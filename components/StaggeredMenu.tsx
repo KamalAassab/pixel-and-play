@@ -308,7 +308,7 @@ export const StaggeredMenu: React.FC<StaggeredMenuProps> = ({
                 type="button"
                 style={{ color: open ? openMenuButtonColor : menuButtonColor }}
             >
-                {open ? <X size={28} /> : <Menu size={28} />}
+                {mounted && (open ? <X size={28} /> : <Menu size={28} />)}
             </button>
 
             {/* Full screen overlays - Portaled */}
@@ -365,20 +365,20 @@ export const StaggeredMenu: React.FC<StaggeredMenuProps> = ({
                                     items.map((it, idx) => {
                                         const isActive = activeSection === it.link;
                                         return (
-                                        <li className="sm-panel-itemWrap relative overflow-hidden leading-none" key={it.label + idx}>
-                                            <a
-                                                className={`sm-panel-item relative font-display font-bold text-[2.2rem] sm:text-[2.8rem] md:text-[2.8rem] lg:text-[3rem] cursor-pointer leading-none tracking-[-1px] uppercase transition-[background,color] duration-150 ease-linear inline-block no-underline pr-[0.8em] hover:text-white ${isActive ? 'text-brand-red' : 'text-white'}`}
-                                                href={it.link}
-                                                aria-label={it.ariaLabel}
-                                                onClick={() => closeMenu()}
-                                                data-index={idx + 1}
-                                                data-active={isActive}
-                                            >
-                                                <span className="sm-panel-itemLabel inline-block [transform-origin:50%_100%] will-change-transform">
-                                                    {it.label}
-                                                </span>
-                                            </a>
-                                        </li>
+                                            <li className="sm-panel-itemWrap relative overflow-hidden leading-none" key={it.label + idx}>
+                                                <a
+                                                    className={`sm-panel-item relative font-display font-bold text-[2.2rem] sm:text-[2.8rem] md:text-[2.8rem] lg:text-[3rem] cursor-pointer leading-none tracking-[-1px] uppercase transition-[background,color] duration-150 ease-linear inline-block no-underline pr-[0.8em] hover:text-white ${isActive ? 'text-brand-red' : 'text-white'}`}
+                                                    href={it.link}
+                                                    aria-label={it.ariaLabel}
+                                                    onClick={() => closeMenu()}
+                                                    data-index={idx + 1}
+                                                    data-active={isActive}
+                                                >
+                                                    <span className="sm-panel-itemLabel inline-block [transform-origin:50%_100%] will-change-transform">
+                                                        {it.label}
+                                                    </span>
+                                                </a>
+                                            </li>
                                         );
                                     })
                                 ) : null}

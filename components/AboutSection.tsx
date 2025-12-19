@@ -117,13 +117,11 @@ export default function AboutSection() {
 
     return (
         <section ref={containerRef} id="about" className="min-h-screen lg:h-screen flex items-center py-8 md:py-24 lg:py-0 px-4 md:px-6 bg-slate-950 relative overflow-hidden">
-            {/* Fixed Pattern Background - Works on all devices including mobile */}
-            <div className="fixed inset-0 z-0 pointer-events-none">
-                <div className="absolute inset-0 bg-[url('/BG-pattern.png')] bg-cover bg-center opacity-60 mix-blend-overlay" />
-            </div>
-            
-            {/* Gradient overlays - positioned relative to section */}
+            {/* Pattern Background - BRIGHTER & VISIBLE */}
             <div className="absolute inset-0 z-0">
+                {/* Opacity 60% with Overlay blend for vibrancy */}
+                <div className="absolute inset-0 bg-[url('/BG-pattern-optimized.webp')] bg-fixed bg-[length:100%_auto] bg-repeat-y md:bg-cover md:bg-no-repeat bg-center opacity-60 mix-blend-overlay" />
+
                 {/* Lighter gradient wash to tints but not hide the pattern */}
                 <div className="absolute inset-0 bg-gradient-to-b from-slate-950 via-slate-950/40 to-slate-950" />
 

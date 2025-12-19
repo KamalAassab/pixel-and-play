@@ -2,12 +2,11 @@
 
 import Image from "next/image";
 import { CalendarDays, Coffee } from "lucide-react";
-import { motion, useInView } from "framer-motion";
-import { useRef } from "react";
+
 
 export default function HeroSection() {
-  const rageFreeZoneRef = useRef(null);
-  const isInView = useInView(rageFreeZoneRef, { once: true, margin: "-100px" });
+
+
 
   return (
     <section className="relative h-screen sm:min-h-screen flex items-end justify-center overflow-hidden bg-background mb-4 md:mb-0">
@@ -39,15 +38,11 @@ export default function HeroSection() {
               className="font-bold tracking-tighter text-white animate-fade-in [animation-delay:100ms] leading-[0.9] flex-1 min-w-0 w-full text-center md:text-left overflow-visible"
             >
               <span className="block text-5xl sm:text-7xl md:text-7xl lg:text-8xl xl:text-9xl 2xl:text-[10rem] whitespace-nowrap max-w-full">PIXEL & PLAY</span>
-              <motion.span
-                ref={rageFreeZoneRef}
-                initial={{ filter: 'blur(20px)', opacity: 0 }}
-                animate={isInView ? { filter: 'blur(0px)', opacity: 1 } : {}}
-                transition={{ duration: 1.2, delay: 0.3 }}
-                className="block text-3xl sm:text-5xl md:text-5xl lg:text-6xl xl:text-7xl 2xl:text-8xl text-transparent bg-clip-text bg-gradient-to-r from-brand-blue to-brand-red mt-0.5 sm:mt-1 break-words sm:whitespace-nowrap max-w-full font-black"
+              <span
+                className="block text-3xl sm:text-5xl md:text-5xl lg:text-6xl xl:text-7xl 2xl:text-8xl text-transparent bg-clip-text bg-gradient-to-r from-brand-blue to-brand-red mt-0.5 sm:mt-1 break-words sm:whitespace-nowrap max-w-full font-black animate-blur-in opacity-0 [animation-delay:300ms]"
               >
                 RAGE FREE ZONE
-              </motion.span>
+              </span>
             </h1>
 
             {/* CTA Buttons */}

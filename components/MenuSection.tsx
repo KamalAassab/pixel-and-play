@@ -457,7 +457,7 @@ export default function MenuSection() {
                                     <div className="relative z-10 flex flex-col items-center h-full justify-center">
                                         {/* Logo - Assuming Dice or main logo */}
                                         <div className="w-56 h-56 -mt-12 mb-0 relative drop-shadow-xl animate-float">
-                                            <Image src="/logo.webp" fill className="object-contain" alt="Pixel & Play" priority />
+                                            <Image src="/logo.webp" fill className="object-contain" alt="Pixel & Play" priority sizes="(max-width: 768px) 160px, 224px" />
                                         </div>
 
                                         {/* Welcome Text */}
@@ -505,7 +505,7 @@ export default function MenuSection() {
                                         <div className="relative z-10 flex flex-col items-center h-full justify-center">
                                             {/* Logo */}
                                             <div className="w-56 h-56 -mt-12 mb-0 relative drop-shadow-xl animate-float">
-                                                <Image src="/logo.webp" fill className="object-contain" alt="Pixel & Play" priority />
+                                                <Image src="/logo.webp" fill className="object-contain" alt="Pixel & Play" priority sizes="(max-width: 768px) 160px, 224px" sizes="(max-width: 768px) 160px, 224px" />
                                             </div>
 
                                             {/* Review Text */}
@@ -554,7 +554,7 @@ export default function MenuSection() {
                                     {/* Content (Assuming simple back with logo or just same as front but reversed side) */}
                                     <div className="relative z-10 flex flex-col items-center h-full justify-center">
                                         <div className="w-56 h-56 -mt-12 mb-0 relative drop-shadow-xl animate-float">
-                                            <Image src="/logo.webp" fill className="object-contain" alt="Pixel & Play" priority />
+                                            <Image src="/logo.webp" fill className="object-contain" alt="Pixel & Play" priority sizes="(max-width: 768px) 160px, 224px" />
                                         </div>
                                         <div className="font-menu text-white font-bold leading-relaxed space-y-4 mb-6">
                                             <h3 className="text-2xl md:text-3xl drop-shadow-md">See you soon!</h3>
@@ -644,7 +644,7 @@ export default function MenuSection() {
                     <div className="relative z-10 flex flex-col items-center h-full justify-center">
                         {/* Logo */}
                         <div className="w-40 h-40 -mt-8 mb-0 relative drop-shadow-xl animate-float">
-                            <Image src="/logo.webp" fill className="object-contain" alt="Pixel & Play" priority />
+                            <Image src="/logo.webp" fill className="object-contain" alt="Pixel & Play" priority sizes="(max-width: 768px) 160px, 224px" />
                         </div>
 
                         {/* Welcome Text */}
@@ -676,7 +676,7 @@ export default function MenuSection() {
                     <div className="relative z-10 flex flex-col items-center h-full justify-center">
                         {/* Logo */}
                         <div className="w-40 h-40 -mt-8 mb-0 relative drop-shadow-xl animate-float">
-                            <Image src="/logo.webp" fill className="object-contain" alt="Pixel & Play" priority />
+                            <Image src="/logo.webp" fill className="object-contain" alt="Pixel & Play" priority sizes="(max-width: 768px) 160px, 224px" />
                         </div>
 
                         {/* Review Text */}
