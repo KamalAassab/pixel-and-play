@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import { League_Spartan } from "next/font/google";
 import dynamic from "next/dynamic";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 import "./globals.css";
 import { Providers } from "./providers";
 
@@ -174,6 +175,7 @@ export default function RootLayout({
             <Footer />
           </SmoothScrolling>
         </Providers>
+        <SpeedInsights />
       </body>
     </html>
   );
